@@ -7,22 +7,8 @@
     android:background="@drawable/background"
     tools:context=".Login">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="290dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
 
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTop0f="parent"
-        tools:layout_editor_absoluteY="25dp"
-
-        />
-
-    <View
+<View
         android:id="@+id/containtercompo"
         style="@style/container_compo"
 
@@ -30,16 +16,19 @@
         android:layout_width="1040dp"
         android:layout_height="245dp"
         tools:layout_editor_absoluteX="-60dp"
-        tools:layout_editor_absoluteY="315dp" />
+        tools:layout_editor_absoluteY="315dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/edit_email"
         style="@style/edit_text"
-        android:layout_marginTop="20dp"
-        android:hint="Email"
+        android:layout_marginTop="24dp"
+        android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="@id/containtercompo"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="@id/containtercompo"
-        app:layout_constraintTop_toTopOf="@id/containtercompo" />
+        app:layout_constraintTop_toTopOf="@id/containtercompo"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edit_senha"
@@ -47,9 +36,16 @@
         android:layout_marginTop="48dp"
         android:hint="Senha"
         app:layout_constraintEnd_toEndOf="@id/containtercompo"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="@id/containtercompo"
-        app:layout_constraintTop_toBottomOf="@id/edit_email" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/edit_email"
+        android:importantForAutofill="no"
+        android:autofillHints="" />
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/button"
+        android:text="Entrar"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="599dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
