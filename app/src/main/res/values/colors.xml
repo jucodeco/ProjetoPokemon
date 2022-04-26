@@ -9,7 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name ="red">#9B0000</color>
     <color name ="blue">#C2FFF9</color>
-
+    <color name = "cinza">#919191</color>
+    <color name = "preto">#313131</color>
+    <color name = "cinzaclaro">#cccccc</color>
+    <color name="laranja">#fd7d24</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="verde">#3CB371</color>
 
 
 
