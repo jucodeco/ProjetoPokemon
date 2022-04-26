@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "998334585107",
+    "project_id": "pokemonju-c0ac5",
+    "storage_bucket": "pokemonju-c0ac5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998334585107:android:3b2f9d027064027549a2e6",
+        "android_client_info": {
+          "package_name": "com.example.pokemon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998334585107-skv43c0l7q2ktgjri73il51s1ouv216j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvwh23UV74IL2XFN0Cj7iylenrx1sAKNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998334585107-skv43c0l7q2ktgjri73il51s1ouv216j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
