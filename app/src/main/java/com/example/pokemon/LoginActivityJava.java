@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class LoginActivityJava extends AppCompatActivity {
 
-    EditText edit_email, edit_senha;
-    Button bt_entrar;
+    EditText editemail, editsenha;
+    Button btentrar;
 
 
     @Override
@@ -22,29 +22,29 @@ public class LoginActivityJava extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-        edit_email = findViewById(R.id.edit_email);
-        edit_senha = findViewById(R.id.edit_senha);
-        bt_entrar = findViewById(R.id.bt_entrar);
+        editemail = findViewById(R.id.editemail);
+        editsenha = findViewById(R.id.editsenha);
+        btentrar = findViewById(R.id.btentrar);
 
-        edit_email.requestFocus();
+        editemail.requestFocus();
 
-        bt_entrar.setOnClickListener(new View.OnClickListener() {
+        btentrar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                if (edit_email.getText().toString().isEmpty() || edit_senha.getText().toString().isEmpty()) {
+                if (editemail.getText().toString().isEmpty() || editsenha.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Prencha os campos", Toast.LENGTH_LONG).show();
 
-                    edit_email.requestFocus();
+                    editemail.requestFocus();
 
-                } else if (edit_email.getText().toString().equals("juliana@gmail.com") &&
-                        edit_senha.getText().toString().equals ("1234")){
+                } else if (editemail.getText().toString().equals("juliana@gmail.com") &&
+                        editsenha.getText().toString().equals ("1234")){
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login Incorreto", Toast.LENGTH_LONG).show();
 
-                    edit_email.requestFocus();
+                    editemail.requestFocus();
                 }
             }
         });
