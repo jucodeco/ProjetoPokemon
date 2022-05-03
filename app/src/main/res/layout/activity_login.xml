@@ -39,7 +39,7 @@
             android:autofillHints=""
             android:hint="Senha"
             android:importantForAutofill="no"
-            android:inputType="textPassword"
+            android:inputType="numberPassword"
 
             />
 
