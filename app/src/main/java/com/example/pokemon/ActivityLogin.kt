@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.example.pokemon.view.MainActivity
 import java.lang.Exception
 
 class ActivityLogin : AppCompatActivity() {

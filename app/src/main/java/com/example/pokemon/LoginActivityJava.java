@@ -1,9 +1,7 @@
 package com.example.pokemon;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +37,7 @@ public class LoginActivityJava extends AppCompatActivity {
 
                 } else if (editemail.getText().toString().equals("juliana@gmail.com") &&
                         editsenha.getText().toString().equals ("1234")){
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivityJava.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login Incorreto", Toast.LENGTH_LONG).show();
