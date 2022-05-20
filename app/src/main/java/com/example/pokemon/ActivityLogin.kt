@@ -14,25 +14,25 @@ class ActivityLogin : AppCompatActivity() {
     private lateinit var editemail: EditText
     private lateinit var editsenha: EditText
     private lateinit var btentrar: AppCompatButton
-    private lateinit var controller: Controller
+    private lateinit var controllerLogin: Controller
 
     override
     fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        controller = Controller(getSharedPreferences("Login SharedPreferences", MODE_PRIVATE))
+        controllerLogin = Controller(getSharedPreferences("Login SharedPreferences", MODE_PRIVATE))
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
         editemail = findViewById(R.id.editemail)
         editsenha = findViewById(R.id.editsenha)
         btentrar = findViewById(R.id.btentrar)
 
-        editemail.setText(controller.getemail())
-        editsenha.setText(controller.getsenha())
+        editemail.setText(controllerLogin.getemail())
+        editsenha.setText(controllerLogin.getsenha())
 
 
         btentrar.setOnClickListener {
             try {
-                controller.onClikEntrar(editemail.text.toString(), editsenha.text.toString())
+                controllerLogin.onClikEntrar(editemail.text.toString(), editsenha.text.toString())
                 startActivity(Intent(applicationContext, MainActivity::class.java))
             } catch (exception: Exception) {
                 Toast.makeText(applicationContext, exception.message, Toast.LENGTH_LONG).show()

@@ -12,9 +12,39 @@
     <color name = "cinza">#919191</color>
     <color name = "preto">#313131</color>
     <color name = "cinzaclaro">#cccccc</color>
-    <color name="laranja">#fd7d24</color>
     <color name="branco">#FFFFFF</color>
-    <color name="verde">#3CB371</color>
+    <color name="gelo">#F9F3EE</color>
+    <color name="azul">#041562</color>
+    <color name="azulclaro">#11468F</color>
+    <color name="vermelho">#DA1212</color>
+    <color name="branquinho">#EEEEEE</color>
+// cores do tipo:
+
+    <color name="colorfire">#fd7d24</color>
+    <color name="colorgrass">#d0e7af</color>
+    <color name="colorpoison">#B87EC8</color>
+    <color name="colorflying">#BCB9B8</color>
+    <color name="colorflying2">#3CC7EE</color>
+    <color name="colorwater">#4493C4</color>
+    <color name="colorbug">#729F3F</color>
+    <color name="colornormal">#A3ACAF</color>
+    <color name="colorelectric">#EED535</color>
+    <color name="colorground">#AB9842</color>
+    <color name="colorfairy">#FDB9E8</color>
+    <color name="colorfighting">#D56723</color>
+    <color name="colorpsychic">#F366B9</color>
+    <color name="colorrock">#A28C21</color>
+    <color name="colorice">#51C3E7</color>
+    <color name="colorghost">#7B62A3</color>
+    <color name="colordragon">#F16E57</color>
+    <color name="colordark">#707070</color>
+
+
+
+
+
+
+
 
 
 

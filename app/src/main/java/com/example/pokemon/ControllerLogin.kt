@@ -1,7 +1,6 @@
 package com.example.pokemon
 
-
-import android.content.SharedPreferences
+import  android.content.SharedPreferences
 
 
 class Controller (private val pref : SharedPreferences){
@@ -14,7 +13,7 @@ class Controller (private val pref : SharedPreferences){
     fun onClikEntrar(email : String, senha : String) {
         when {
             email.isEmpty() ||senha.isEmpty() ->
-               throw Exception ("Prencha os campos")
+                throw Exception ("Prencha os campos")
 
             email== "jucodeco@gmail.com" && senha == "1234" -> {
                 val editor = pref.edit()
@@ -39,7 +38,7 @@ class Controller (private val pref : SharedPreferences){
 
 
 
-      val senhaint =  pref.getInt("SENHA", Int.MIN_VALUE)
+        val senhaint =  pref.getInt("SENHA", Int.MIN_VALUE)
         if (senhaint==Int.MIN_VALUE)
             return ""
         else return senhaint.toString()

@@ -1,8 +1,8 @@
 package com.example.pokemon.api
 
 
-import com.example.pokemon.model.PokemonApiResult
-import com.example.pokemon.model.PokemonsApiResult
+import com.example.pokemon.api.model.PokemonApiResult
+import com.example.pokemon.api.model.PokemonsApiResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

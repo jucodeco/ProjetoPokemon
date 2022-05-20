@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
 import com.example.pokemon.domain.Pokemon
+import com.example.pokemon.viewmodel.PokemonItem
 
 class PokemonAdapter(
-    private val items: List<Pokemon?>
+    private val items: List<PokemonItem?>
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,7 +30,7 @@ class PokemonAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Pokemon?) = with(itemView) {
+        fun bindView(item: PokemonItem?) = with(itemView) {
             val ivPokemon = findViewById<ImageView>(R.id.ivPokemon)
             val tvNumber = findViewById<TextView>(R.id.tvNumber)
             val tvName = findViewById<TextView>(R.id.tvName)
@@ -37,19 +38,25 @@ class PokemonAdapter(
             val tvType2 = findViewById<TextView>(R.id.tvType2)
 
             item?.let {
-                Glide.with(itemView.context).load(it.imageUrl).into(ivPokemon)
+                Glide.with(itemView.context).load(it.imagem).into(ivPokemon)
 
-                tvNumber.text = "Nº ${item.formattedNumber}"
-                tvName.text = item.formattedName
-                tvType1.text = item.types[0].name.replaceFirstChar {it.uppercase()}
+                tvNumber.text = item.numero
+                tvName.text = item.nome
+                tvType1.text = item.tipo1
+                tvType1.setBackgroundResource(item.tipo1color)
 
-                if (item.types.size > 1) {
+                if (item.tipo2 != null && item.tipo2color != null) {
                     tvType2.visibility = View.VISIBLE
-                    tvType2.text = item.types[1].name.replaceFirstChar {it.uppercase()}
+                    tvType2.text = item.tipo2
+                    tvType2.setBackgroundResource (item.tipo2color)
                 } else {
                     tvType2.visibility = View.GONE
                 }
             }
         }
+
+
+
+
     }
 }
