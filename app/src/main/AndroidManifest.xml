@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokemon">
         <activity
-            android:name=".ActivityLogin"
+            android:name="com.example.pokemon.login.ActivityLogin"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -22,7 +22,7 @@
 
         <activity
 
-            android:name=".view.MainActivity"
+            android:name="com.example.pokemon.main.MainActivity"
             android:exported="false"
 
             >

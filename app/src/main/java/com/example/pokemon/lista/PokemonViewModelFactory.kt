@@ -1,4 +1,4 @@
-package com.example.pokemon.viewmodel
+package com.example.pokemon.lista
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

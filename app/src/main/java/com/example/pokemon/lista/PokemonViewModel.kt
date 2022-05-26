@@ -1,9 +1,9 @@
-package com.example.pokemon.viewmodel
+package com.example.pokemon.lista
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.R
-import com.example.pokemon.UseCase.ExibirListaDePokemons
+import com.example.pokemon.lista.UseCase.ExibirListaDePokemons
 import java.lang.IndexOutOfBoundsException
 
 

@@ -1,4 +1,4 @@
-package com.example.pokemon.view
+package com.example.pokemon.lista
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
-import com.example.pokemon.domain.Pokemon
-import com.example.pokemon.viewmodel.PokemonItem
 
 class PokemonAdapter(
     private val items: List<PokemonItem?>
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
 
         return ViewHolder(view)
     }

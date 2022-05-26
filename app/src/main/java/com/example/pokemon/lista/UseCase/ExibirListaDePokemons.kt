@@ -1,4 +1,4 @@
-package com.example.pokemon.UseCase
+package com.example.pokemon.lista.UseCase
 
 import android.util.Log
 import com.example.pokemon.api.PokemonRepository

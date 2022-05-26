@@ -7,7 +7,6 @@ class Controller (private val pref : SharedPreferences){
 
 
 
-    //val senha = pref.getInt("SENHA", Int.MIN_VALUE)
 
     @Throws(Exception::class)
     fun onClikEntrar(email : String, senha : String) {
@@ -45,4 +44,7 @@ class Controller (private val pref : SharedPreferences){
 
     }
 
+}
+
+class ControllerLogin {
 }
