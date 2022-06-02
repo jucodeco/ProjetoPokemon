@@ -5,4 +5,7 @@ data class Pokemon(
     val name: String,
     val types: List<PokemonType>,
     val imageUrl : String
-)
+
+) {
+
+}

@@ -1,28 +1,19 @@
-package com.example.pokemon.lista
+package com.example.pokemon.favoritos
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorito
-import com.example.pokemon.lista.UseCase.ExibirListaDePokemons
+import com.example.pokemon.favoritos.usecase.ExibirListaDePokemonsFavoritos
+import com.example.pokemon.lista.PokemonItem
 import java.lang.IndexOutOfBoundsException
 
-
-class PokemonViewModel(private val favoriteRepository: FavoriteRepository) : ViewModel() {
-
-    var pokemons = MutableLiveData<List<PokemonItem?>>()
-
-
+class FavoritePokemonViewModel(private val usecase: ExibirListaDePokemonsFavoritos) : ViewModel() {
     fun loadPokemons() {
-        val usecase = ExibirListaDePokemons()
 
         Thread(Runnable {
-
-            val favoritePokemons = favoriteRepository.getAll()
-
-
-            pokemons.postValue(usecase.getPokemons()?.map {
+            pokemons.postValue(usecase.get().map {
                 PokemonItem(
                     it.imageUrl,
                     it.name.replaceFirstChar { it.uppercase() },
@@ -41,49 +32,21 @@ class PokemonViewModel(private val favoriteRepository: FavoriteRepository) : Vie
                     } catch (e: IndexOutOfBoundsException) {
                         null
                     },
-                        it.number,
-
-                            favoritePokemons.firstOrNull{pokemon->pokemon.number==it.number} != null
-
-
-
+                    it.number,
+                    isfav = true
 
 
                 )
+            })
 
 
-            }
+        }).start()
 
 
-            )
-        })
 
 
-            .start()
 
     }
 
-    fun addFavorite(id: Int) {
-        favoriteRepository.save(id)
-
-    }
-    fun removefavorite(guest: Int) {
-        favoriteRepository.delete(PokemonFavorito(guest))
-
-    }
-
-
-
-    fun deleteFavoritepokemonItem(pokemonItem: PokemonItem) {
-
-    }
-
+    var pokemons = MutableLiveData<List<PokemonItem?>>()
 }
-
-
-
-
-
-
-
-

@@ -10,14 +10,18 @@
         <entry key="app/src/main/res/drawable/edit_text.xml" value="0.1555" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_eye.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favoritos.xml" value="0.164" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/favoritosfragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_favoritos.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/fragment_lista.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragmentactivity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragmentteste.xml" value="0.1" />
         <entry key="app/src/main/res/layout/iniciofragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.165" />
         <entry key="app/src/main/res/layout/listafragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/pokemon_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/telaprincipal.xml" value="0.1" />
