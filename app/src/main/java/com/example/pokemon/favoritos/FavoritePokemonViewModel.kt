@@ -3,13 +3,11 @@ package com.example.pokemon.favoritos
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
-import com.example.pokemon.favoritos.room.FavoriteRepository
-import com.example.pokemon.favoritos.room.PokemonFavorito
-import com.example.pokemon.favoritos.usecase.ExibirListaDePokemonsFavoritos
+import com.example.pokemon.favoritos.usecase.ViewListFavoritePokemons
 import com.example.pokemon.lista.PokemonItem
 import java.lang.IndexOutOfBoundsException
 
-class FavoritePokemonViewModel(private val usecase: ExibirListaDePokemonsFavoritos) : ViewModel() {
+class FavoritePokemonViewModel(private val usecase: ViewListFavoritePokemons) : ViewModel() {
     fun loadPokemons() {
 
         Thread(Runnable {

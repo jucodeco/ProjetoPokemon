@@ -7,12 +7,12 @@ import androidx.room.*
 interface FavoriteDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun save(guest: PokemonFavorito): Long
+    fun save(guest: PokemonFavorite): Long
 
     @Delete
-    fun delete(guest: PokemonFavorito)
+    fun delete(guest: PokemonFavorite)
 
     @Query("SELECT * FROM Favoritos")
-    fun getInvited(): List<PokemonFavorito>
+    fun getInvited(): List<PokemonFavorite>
 
 }

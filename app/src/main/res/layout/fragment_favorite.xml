@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/branquinho">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -10,11 +11,13 @@
         android:layout_height="match_parent"
         android:background="@color/gelo">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvfavorite"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvfavorite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem= "@layout/favorite_pokemon"
+            />
+
 
         <ProgressBar
             android:id="@+id/progressfav"

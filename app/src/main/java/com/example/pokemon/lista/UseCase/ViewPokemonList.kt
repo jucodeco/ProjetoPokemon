@@ -1,11 +1,13 @@
 package com.example.pokemon.lista.UseCase
 
 import android.util.Log
-import com.example.pokemon.api.PokemonRepository
+
+import com.example.pokemon.api.model.PokemonRepository
 import com.example.pokemon.domain.Pokemon
 import com.example.pokemon.api.model.PokemonsApiResult
+import com.example.pokemon.login.userRepository.UserRepository
 
-class ExibirListaDePokemons {
+class ViewPokemonList(pokemonRepository: PokemonRepository) {
 
     fun getPokemons(): List<Pokemon>? {
 

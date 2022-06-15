@@ -6,8 +6,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.example.pokemon.Controller
 import com.example.pokemon.R
+import com.example.pokemon.login.userRepository.UserRepositoryImpl
 
 import com.example.pokemon.main.MainActivity
 import java.lang.Exception
@@ -17,12 +17,12 @@ class ActivityLogin : AppCompatActivity() {
     private lateinit var editemail: EditText
     private lateinit var editsenha: EditText
     private lateinit var btentrar: AppCompatButton
-    private lateinit var controllerLogin: Controller
+    private lateinit var controllerLogin: LoginController
 
     override
     fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        controllerLogin = Controller(getSharedPreferences("Login SharedPreferences", MODE_PRIVATE))
+        controllerLogin = LoginController(UserRepositoryImpl(getSharedPreferences("Login SharedPreferences", MODE_PRIVATE)))
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
         editemail = findViewById(R.id.editemail)

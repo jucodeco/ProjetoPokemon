@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.example.pokemon.R
 
 
-class InicioFragment : Fragment(R.layout.fragment_inicio) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
 }
 

@@ -36,6 +36,8 @@ class PokemonAdapter(
         notifyDataSetChanged()
     }
 
+
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: PokemonItem?, addFavoriteListener: OnClickAddFavorite?,removeFavoriteListener: OnClickRemoveFavorite?) = with(itemView) {
             val ivPokemon = findViewById<ImageView>(R.id.ivPokemon)
@@ -46,18 +48,18 @@ class PokemonAdapter(
             val favorite = findViewById<ImageButton>(R.id.favorite)
 
             item?.let {
-                Glide.with(itemView.context).load(it.imagem).into(ivPokemon)
+                Glide.with(itemView.context).load(it.image).into(ivPokemon)
 
-                tvNumber.text = item.numero
-                tvName.text = item.nome
-                tvType1.text = item.tipo1
-                tvType1.setBackgroundResource(item.tipo1color)
+                tvNumber.text = item.number
+                tvName.text = item.name
+                tvType1.text = item.type1
+                tvType1.setBackgroundResource(item.type1color)
 
 
-                if (item.tipo2 != null && item.tipo2color != null) {
+                if (item.type2 != null && item.type2color != null) {
                     tvType2.visibility = View.VISIBLE
-                    tvType2.text = item.tipo2
-                    tvType2.setBackgroundResource(item.tipo2color)
+                    tvType2.text = item.type2
+                    tvType2.setBackgroundResource(item.type2color)
                 } else {
                     tvType2.visibility = View.GONE
                 }

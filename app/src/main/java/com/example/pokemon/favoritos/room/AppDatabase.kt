@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 
-@Database(entities = [PokemonFavorito::class], version = 1)
+@Database(entities = [PokemonFavorite::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getfavoriteDAO(): FavoriteDAO

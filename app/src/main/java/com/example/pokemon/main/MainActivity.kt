@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.pokemon.R
-import com.example.pokemon.api.PokemonRepository
+import com.example.pokemon.api.model.PokemonRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

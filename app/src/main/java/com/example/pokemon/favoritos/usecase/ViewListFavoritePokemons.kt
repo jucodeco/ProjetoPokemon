@@ -1,11 +1,12 @@
 package com.example.pokemon.favoritos.usecase
 
-import com.example.pokemon.api.PokemonRepository
+
+import com.example.pokemon.api.model.PokemonRepository
 import com.example.pokemon.domain.Pokemon
 import com.example.pokemon.favoritos.room.FavoriteRepository
 
 
-class ExibirListaDePokemonsFavoritos
+class ViewListFavoritePokemons
     (private val favoriteRepository: FavoriteRepository, private val pokemonRepository: PokemonRepository ) {
 
             fun get(): List<Pokemon> {

@@ -2,8 +2,6 @@ package com.example.pokemon.lista
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemon.R
 
-class ListaFragment : Fragment(R.layout.fragment_lista) {
+class ListFragment : Fragment(R.layout.fragment_list) {
 
 
     private lateinit var viewModel: PokemonViewModel
