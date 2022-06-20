@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.pokemon.R
+import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.lista.PokemonAdapter
 
 

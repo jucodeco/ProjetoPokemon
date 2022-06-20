@@ -1,34 +1,32 @@
-package com.example.pokemon.lista.UseCase
+package com.example.pokemon.lista.usecase
 
-import android.util.Log
 
-import com.example.pokemon.api.model.PokemonRepository
+
+import com.example.pokemon.api.PokemonRepositoryImpl
 import com.example.pokemon.domain.Pokemon
 import com.example.pokemon.api.model.PokemonsApiResult
-import com.example.pokemon.login.userRepository.UserRepository
 
-class ViewPokemonList(pokemonRepository: PokemonRepository) {
+class ViewPokemonList(private val pokemonRepositoryImpl: PokemonRepositoryImpl) {
 
     fun getPokemons(): List<Pokemon>? {
 
-        val pokemonsApiResult: PokemonsApiResult? = PokemonRepository.listPokemons()
-
-        Log.d("Pokemon", pokemonsApiResult.toString())
+        val pokemonsApiResult: PokemonsApiResult? = pokemonRepositoryImpl.listPokemons()
 
         return pokemonsApiResult?.results?.map { pokemonResult ->
             val number = pokemonResult.url
                 .replace("https://pokeapi.co/api/v2/pokemon/", "")
                 .replace("/", "").toInt()
 
-            val pokemonApiResult = PokemonRepository.getPokemon(number)
-            Pokemon(
+            val pokemonApiResult = pokemonRepositoryImpl.getPokemon(number)
+            val pokemon = Pokemon(
                 pokemonApiResult?.id ?: 0,
                 pokemonApiResult?.name ?: "",
                 pokemonApiResult?.types?.map { type ->
                     type.type
                 } ?: emptyList(),
-                pokemonApiResult?.sprites?.other?.officialArtwork?.front_default?:""
+                pokemonApiResult?.sprites?.other?.officialArtwork?.front_default ?: ""
             )
+            pokemon
         }
     }
 }

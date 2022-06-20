@@ -4,20 +4,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
 
-import com.example.pokemon.api.model.PokemonRepository
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorite
-import com.example.pokemon.lista.UseCase.ViewPokemonList
+import com.example.pokemon.lista.usecase.ViewPokemonList
 import java.lang.IndexOutOfBoundsException
 
 
-class PokemonViewModel(private val favoriteRepository: FavoriteRepository) : ViewModel() {
+class PokemonViewModel(private val favoriteRepository: FavoriteRepository,
+                       private val usecase: ViewPokemonList) : ViewModel() {
 
     var pokemons = MutableLiveData<List<PokemonItem?>>()
 
 
     fun loadPokemons() {
-        val usecase = ViewPokemonList(PokemonRepository)
 
         Thread(Runnable {
 
@@ -74,11 +73,6 @@ class PokemonViewModel(private val favoriteRepository: FavoriteRepository) : Vie
 
     }
 
-
-
-    fun deleteFavoritepokemonItem(pokemonItem: PokemonItem) {
-
-    }
 
 }
 
