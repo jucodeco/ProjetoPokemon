@@ -9,12 +9,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
+import com.example.pokemon.domain.Pokemon
 
 class PokemonAdapter(
 
-    private val addFavoriteListener: OnClickAddFavorite?, private val removeFavoriteListener: OnClickRemoveFavorite?
+    private val addFavoriteListener: OnClickAddFavorite?, private val removeFavoriteListener: OnClickRemoveFavorite?,
+    private val onItemClick: ((PokemonItem) -> Unit)?
 
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+
     private val items: MutableList<PokemonItem?> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
@@ -27,7 +30,7 @@ class PokemonAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.bindView(item, addFavoriteListener,removeFavoriteListener)
+        holder.bindView(item, addFavoriteListener,removeFavoriteListener,onItemClick)
     }
 
     fun update(it: List<PokemonItem?>) {
@@ -39,7 +42,7 @@ class PokemonAdapter(
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: PokemonItem?, addFavoriteListener: OnClickAddFavorite?,removeFavoriteListener: OnClickRemoveFavorite?) = with(itemView) {
+        fun bindView(item: PokemonItem?, addFavoriteListener: OnClickAddFavorite?, removeFavoriteListener: OnClickRemoveFavorite?, onItemClick: ((PokemonItem) -> Unit)?) = with(itemView) {
             val ivPokemon = findViewById<ImageView>(R.id.ivPokemon)
             val tvNumber = findViewById<TextView>(R.id.tvNumber)
             val tvName = findViewById<TextView>(R.id.tvName)
@@ -48,6 +51,9 @@ class PokemonAdapter(
             val favorite = findViewById<ImageButton>(R.id.favorite)
 
             item?.let {
+                itemView.setOnClickListener{
+                    onItemClick?.invoke(item)
+                }
                 Glide.with(itemView.context).load(it.image).into(ivPokemon)
 
                 tvNumber.text = item.number
@@ -76,7 +82,5 @@ class PokemonAdapter(
 
     }
 
-    open class OnCocktailClickListener {
 
-    }
 }

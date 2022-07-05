@@ -12,7 +12,7 @@ class ControllerTest {
 
 
     @Test
-    fun `test login if success`() {
+    fun `test login when success`() {
 
         controller.onClikEntrar("jucodeco@gmail.com", "1234")
         verify(userRepository).save("jucodeco@gmail.com", 1234)

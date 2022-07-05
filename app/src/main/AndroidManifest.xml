@@ -28,6 +28,14 @@
             >
 
         </activity>
+        <activity
+
+            android:name="com.example.pokemon.details.DetailsActivity"
+            android:exported="false"
+
+            >
+
+        </activity>
     </application>
 
 </manifest>

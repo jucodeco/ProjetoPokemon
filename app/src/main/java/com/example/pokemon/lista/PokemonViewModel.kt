@@ -3,27 +3,24 @@ package com.example.pokemon.lista
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
-
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorite
 import com.example.pokemon.lista.usecase.ViewPokemonList
 import java.lang.IndexOutOfBoundsException
 
 
-class PokemonViewModel(private val favoriteRepository: FavoriteRepository,
-                       private val usecase: ViewPokemonList) : ViewModel() {
+class PokemonViewModel(
+    private val favoriteRepository: FavoriteRepository,
+    private val usecase: ViewPokemonList
+) : ViewModel() {
 
     var pokemons = MutableLiveData<List<PokemonItem?>>()
 
-
     fun loadPokemons() {
 
-        Thread(Runnable {
+        val favoritePokemons = favoriteRepository.getAll()
 
-            val favoritePokemons = favoriteRepository.getAll()
-
-
-            pokemons.postValue(usecase.getPokemons()?.map {
+        pokemons.postValue(usecase.getPokemons()?.map {
                 PokemonItem(
                     it.imageUrl,
                     it.name.replaceFirstChar { it.uppercase() },
@@ -42,33 +39,20 @@ class PokemonViewModel(private val favoriteRepository: FavoriteRepository,
                     } catch (e: IndexOutOfBoundsException) {
                         null
                     },
-                        it.number,
+                    it.number,
 
-                            favoritePokemons.firstOrNull{pokemon->pokemon.number==it.number} != null
-
-
-
-
-
+                    favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null
                 )
-
-
             }
-
-
             )
-        })
-
-
-            .start()
-
     }
 
     fun addFavorite(id: Int) {
         favoriteRepository.save(id)
 
     }
-    fun removefavorite(guest: Int) {
+
+    fun removeFavorite(guest: Int) {
         favoriteRepository.delete(PokemonFavorite(guest))
 
     }

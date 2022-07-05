@@ -34,7 +34,111 @@
     <item name="android:textSize">18sp</item>
     <item name="android:textStyle">bold</item>
     <item name="android:background">@drawable/button</item>
+
 </style>
+
+    <!-- Custom Styles -->
+    <style name="pokemon_logo_style_home">
+        <item name="android:shadowColor">@color/yellow_poke</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textColor">@color/blue_poke</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="welcome_text_style_main_activity">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="default_button_style">
+        <item name="android:layout_width">@dimen/match_constraint</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/poke_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="paddingEnd">@dimen/default_padding_button</item>
+        <item name="paddingStart">@dimen/default_padding_button</item>
+    </style>
+
+    <style name="small_button_style" parent="default_button_style">
+        <item name="android:layout_marginStart">@dimen/material_margin_16</item>
+        <item name="android:layout_marginTop">@dimen/material_margin_16</item>
+        <item name="android:layout_marginEnd">@dimen/material_margin_16</item>
+        <item name="android:layout_marginBottom">@dimen/material_margin_16</item>
+    </style>
+
+    <style name="large_button_style" parent="default_button_style">
+        <item name="android:layout_marginStart">@dimen/material_margin_32</item>
+        <item name="android:layout_marginTop">@dimen/material_margin_32</item>
+        <item name="android:layout_marginEnd">@dimen/material_margin_32</item>
+        <item name="android:layout_marginBottom">@dimen/material_margin_32</item>
+    </style>
+
+    <style name="dialog_style_pokes_in_search_text">
+        <item name="android:textColor">@color/poke_text</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="stat_style_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">@dimen/stat_label_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="stat_style_value" parent="stat_style_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">@dimen/stat_text_size</item>
+    </style>
+
+    <style name="dialog_style_pokes_in_types_text">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="poke_name_style_detail">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginStart">@dimen/material_margin_16</item>
+        <item name="android:layout_marginEnd">@dimen/material_margin_16</item>
+        <item name="android:layout_marginBottom">@dimen/material_margin_16</item>
+        <item name="android:textColor">@color/poke_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="poke_id_style_detail" parent="poke_name_style_detail">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginBottom">@dimen/material_margin_8</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="custom_tab_text_style_detail" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+        <item name="android:capitalize">words</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="custom_card_view_style_detail" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/shape_appearance_overlay_card_custom_corners_style_detail</item>
+    </style>
+
+    <style name="shape_appearance_overlay_card_custom_corners_style_detail" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/custom_card_view_top_corner_radius</item>
+        <item name="cornerSizeTopLeft">@dimen/custom_card_view_top_corner_radius</item>
+        <item name="cornerSizeBottomRight">@dimen/custom_card_view_low_corner_radius</item>
+        <item name="cornerSizeBottomLeft">@dimen/custom_card_view_low_corner_radius</item>
+    </style>
+
 
 
 

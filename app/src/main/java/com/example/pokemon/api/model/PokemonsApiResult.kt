@@ -19,17 +19,34 @@ data class PokemonApiResult(
     val id: Int,
     val name: String,
     val types: List<PokemonTypeSlot>,
-    val sprites: Sprites
+    val sprites: Sprites,
+    val stats: List<PokemonStats>,
+    val height: Int,
+    val weight: Int,
+
 ) {
 
-data class Sprites(
+data class  Sprites (
     val other: OtherSprites
 
 )
-    data class OtherSprites(
+
+
+    data class PokemonStats (
+        val base_stat: Int,
+        val effort: Int,
+        val statName: PokemonStatName
+
+            )
+
+    data class PokemonStatName(
+        val name: String
+    )
+     class OtherSprites(
         @SerializedName("official-artwork")
         val officialArtwork: OfficialArtwork
     )
+
     data class OfficialArtwork(
         val front_default: String
     )

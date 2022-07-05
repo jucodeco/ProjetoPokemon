@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity (tableName = "Favoritos")
-class PokemonFavorite(
+data class PokemonFavorite(
     @PrimaryKey(autoGenerate = false)
     var number: Int
 ) {

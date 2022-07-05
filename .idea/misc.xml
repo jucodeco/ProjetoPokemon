@@ -3,31 +3,52 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.15260416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1185" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.165" />
+        <entry key="app/src/main/res/drawable/background_item_pokemon.xml" value="0.1365" />
+        <entry key="app/src/main/res/drawable/background_item_pokemon_span.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.1495" />
         <entry key="app/src/main/res/drawable/container_compo.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/default_dot.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/edit_text.xml" value="0.1555" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_eye.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_favoritos.xml" value="0.164" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/round.xml" value="0.1365" />
+        <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.1365" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.1365" />
+        <entry key="app/src/main/res/drawable/up_button_icon.xml" value="0.1365" />
+        <entry key="app/src/main/res/layout/activity_details.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/favorite_pokemon.xml" value="0.1" />
         <entry key="app/src/main/res/layout/favoritosfragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.2248995983935743" />
+        <entry key="app/src/main/res/layout/fragment_details_pokedex.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favoritos.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.195382642154767" />
-        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/layout/fragment_lista.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_poke_about.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_poke_chain.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_poke_others.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_poke_stats.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_poke_types_dialog.xml" value="0.2248995983935743" />
         <entry key="app/src/main/res/layout/fragmentactivity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragmentteste.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/image_view_pager_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/iniciofragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/list_item_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/listafragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/pokemon_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/recycler_poke_item_view.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/recycler_poke_item_view_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/spinner_item.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/telaprincipal.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_navigation_menu.xml" value="0.18255664814023087" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.18255664814023087" />

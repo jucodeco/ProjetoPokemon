@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritosfragment"
-        android:name="com.example.pokemon.favoritos.favoritosfragment"
+        android:name="com.example.pokemon.favoritos.FavoritosFragment"
         tools:layout="@layout/fragment_favorite"
         android:label="favoritosfragment" />
     <fragment

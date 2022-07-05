@@ -16,7 +16,7 @@ import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.lista.PokemonAdapter
 
 
-class favoritosfragment : Fragment(R.layout.fragment_favorite) {
+class FavoritosFragment : Fragment(R.layout.fragment_favorite) {
     private lateinit var viewModel: FavoritePokemonViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class favoritosfragment : Fragment(R.layout.fragment_favorite) {
         val progressfav = view.findViewById<ProgressBar>(R.id.progressfav)
         viewModel = ViewModelProvider(this, FavoritePokemonFactory(view.context))
             .get(FavoritePokemonViewModel::class.java)
-        val adapter = PokemonAdapter( null,null)
+        val adapter = PokemonAdapter( null,null,null)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = adapter
 
@@ -37,10 +37,11 @@ class favoritosfragment : Fragment(R.layout.fragment_favorite) {
             progressfav.visibility = View.GONE
 
         })
-        viewModel.loadPokemons()
+        Thread(Runnable {
+            viewModel.loadPokemons()
 
 
-
+        }).start()
             }
 
         }

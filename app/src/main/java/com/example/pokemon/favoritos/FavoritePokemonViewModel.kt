@@ -9,39 +9,31 @@ import java.lang.IndexOutOfBoundsException
 
 class FavoritePokemonViewModel(private val usecase: ViewListFavoritePokemons) : ViewModel() {
     fun loadPokemons() {
+        pokemons.postValue(usecase.get().map {
+            PokemonItem(
+                it.imageUrl,
+                it.name.replaceFirstChar { it.uppercase() },
+                "Nº ${it.number.toString().padStart(3, '0')}",
+                it.types[0].name,
+                ColorType.getcolortype(it.types[0].name),
+                try {
+                    it.types[1].name
 
-        Thread(Runnable {
-            pokemons.postValue(usecase.get().map {
-                PokemonItem(
-                    it.imageUrl,
-                    it.name.replaceFirstChar { it.uppercase() },
-                    "Nº ${it.number.toString().padStart(3, '0')}",
-                    it.types[0].name,
-                    ColorType.getcolortype(it.types[0].name),
-                    try {
-                        it.types[1].name
+                } catch (e: IndexOutOfBoundsException) {
+                    null
+                },
+                try {
+                    ColorType.getcolortype(it.types[1].name)
 
-                    } catch (e: IndexOutOfBoundsException) {
-                        null
-                    },
-                    try {
-                        ColorType.getcolortype(it.types[1].name)
-
-                    } catch (e: IndexOutOfBoundsException) {
-                        null
-                    },
-                    it.number,
-                    isfav = true
+                } catch (e: IndexOutOfBoundsException) {
+                    null
+                },
+                it.number,
+                isfav = true
 
 
-                )
-            })
-
-
-        }).start()
-
-
-
+            )
+        })
 
 
     }
