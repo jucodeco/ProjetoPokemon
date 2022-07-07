@@ -2,7 +2,6 @@ package com.example.pokemon.lista
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
@@ -20,6 +19,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_catalog_fragment)
 
         val progress = view.findViewById<ProgressBar>(R.id.progress_bar_catalog_fragment)

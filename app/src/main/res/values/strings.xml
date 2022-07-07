@@ -96,5 +96,59 @@
         <string name="snackbar_message_end_of_the_list">You hit the end of the list.</string>
         <string name="animator_gallery_color_property">backgroundColor</string>
 
+    <string name="app_name2">Pokédex2.0</string>
+    <string name="empty_recyclerview">No Pokémon match your search!</string>
+    <string name="searchbar_hint">Search Pokémon Name</string>
+    <string name="submit">Submit</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="breeding">Breeding</string>
+    <string name="gender">Gender</string>
+    <string name="genderless">Genderless</string>
+    <string name="abilities">Abilities</string>
+    <string name="weak_to">Weak to</string>
+    <string name="resistant_to">Resistant to</string>
+    <string name="immune_to">Immune to</string>
+    <string name="hidden">Hidden</string>
+    <string name="game_description">Game Description</string>
+    <string name="ability_effect">Ability Effect</string>
+    <string name="nature">Nature</string>
+    <string name="level">Level</string>
+    <string name="learned_at">Learned at</string>
+    <string name="learned_by">Learned by</string>
+    <string name="category">Category</string>
+
+    <string-array name="types">
+        <item>Bug</item>
+        <item>Dark</item>
+        <item>Dragon</item>
+        <item>Electric</item>
+        <item>Fairy</item>
+        <item>Fighting</item>
+        <item>Fire</item>
+        <item>Flying</item>
+        <item>Ghost</item>
+        <item>Grass</item>
+        <item>Ground</item>
+        <item>Ice</item>
+        <item>Normal</item>
+        <item>Poison</item>
+        <item>Psychic</item>
+        <item>Rock</item>
+        <item>Steel</item>
+        <item>Water</item>
+    </string-array>
+
+    <string-array name="stats">
+        <item>HP</item>
+        <item>Attack</item>
+        <item>Defense</item>
+        <item>Sp.Atk</item>
+        <item>Sp.Def</item>
+        <item>Speed</item>
+    </string-array>
+
+
+
 
 </resources>

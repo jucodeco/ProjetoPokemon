@@ -35,7 +35,7 @@ data class  Sprites (
     data class PokemonStats (
         val base_stat: Int,
         val effort: Int,
-        val statName: PokemonStatName
+        val stat: PokemonStatName
 
             )
 
