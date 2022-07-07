@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/text_view_chain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/material_margin_16"
+        android:layout_marginTop="@dimen/material_margin_16"
+        android:layout_marginEnd="@dimen/material_margin_16"
+        android:text="@string/text_view_evolution_chain_title"
+        android:textColor="@color/text_color_detail"
+        style="@style/poke_name_style_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/list_view_chain"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/default_list_view_height"
+        android:layout_marginStart="@dimen/material_margin_16"
+        android:layout_marginTop="@dimen/material_margin_8"
+        android:layout_marginEnd="@dimen/material_margin_16"
+        android:layout_marginBottom="@dimen/material_margin_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_chain"
+        tools:listitem="@tools:sample/cities[0]" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
