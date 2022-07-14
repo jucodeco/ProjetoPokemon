@@ -148,7 +148,8 @@
         <item>Speed</item>
     </string-array>
 
-
+    <string name="stats">Stats</string>
+    <string name="about">About</string>
 
 
 </resources>

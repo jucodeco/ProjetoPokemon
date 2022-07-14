@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,17 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/pokemonVariationName"
-        style="@style/CustomTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/card_margin"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/pokemonName"
-        app:layout_constraintTop_toBottomOf="@id/pokemonName" />
-
 
     <TextView
         android:id="@+id/pokemonType1"
@@ -42,8 +32,8 @@
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
         android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="@id/pokemonName"
-        app:layout_constraintTop_toBottomOf="@id/pokemonVariationName" />
+        app:layout_constraintTop_toBottomOf="@id/pokemonName"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/pokemonType2"
@@ -71,15 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/pokemonName" />
 
-    <TextView
-        android:id="@+id/pokemonSpecies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/card_margin"
-        android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@id/pokemonType1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokemonId" />
+
 
 
     <ImageView
@@ -93,18 +75,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pokemonType1"
-        app:tint="@android:color/white" />
+        app:tint="@android:color/white"
+        tools:ignore="NotSibling" />
 
-    <ImageView
-        android:id="@+id/pokemonImg"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="56dp"
-        android:elevation="@dimen/card_margin"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokemonType1" />
 
     <!--    <ImageView-->
     <!--        android:id="@+id/previousVariation"-->
@@ -126,6 +99,18 @@
     <!--        app:layout_constraintTop_toTopOf="@id/pokemonImg"-->
     <!--        app:tint="@color/blackFume" />-->
 
+    <ImageView
+        android:id="@+id/pokemonImg"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="24dp"
+        android:elevation="@dimen/card_margin"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokemonType1" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -142,6 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/card_margin"
             android:layout_marginEnd="@dimen/card_margin"
+
             app:tabIndicatorColor="@color/colorAccent"
             app:tabSelectedTextColor="@color/colorAccent" />
 

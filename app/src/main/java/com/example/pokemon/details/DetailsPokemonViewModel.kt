@@ -1,6 +1,6 @@
 package com.example.pokemon.details
 
-import android.util.Log
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
@@ -15,18 +15,17 @@ class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository) 
 
         val pokemon = pokemonRepository.getPokemon(number)
 
-
         pokemon?.let {
             val details = PokemonDetails(
-                pokemon.name ,
-                pokemon.id ,
-                pokemon.sprites.other.officialArtwork.front_default ,
+                pokemon.name.replaceFirstChar { it.uppercase() },
+                pokemon.id,
+                pokemon.sprites.other.officialArtwork.front_default,
                 pokemon.stats.map {
                     Pair(it.stat.name, it.base_stat)
 
-                } ,
-                pokemon.height ,
-                pokemon.weight ,
+                },
+                pokemon.height,
+                pokemon.weight,
                 ColorType.getcolortype(pokemon.types[0].type.name)
 
             )
@@ -35,11 +34,14 @@ class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository) 
 
         }
 
+
     }
 
-
-
-
 }
+
+
+
+
+
 
 

@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
-class PokemonRepositoryImpl (private val cachedir: File) : PokemonRepository {
+class PokemonRepositoryImpl(private val cachedir: File) : PokemonRepository {
 
     private val service: PokemonService by lazy {
         val SIZE_OF_CACHE = (10 * 1024 * 1024).toLong() // 10 MiB
@@ -25,16 +25,11 @@ class PokemonRepositoryImpl (private val cachedir: File) : PokemonRepository {
         retrofit.create(PokemonService::class.java)
     }
 
-
-
-
-
     override fun listPokemons(limit: Int): PokemonsApiResult? {
         val call = service.listPokemons(limit)
 
         return call.execute().body()
     }
-
 
     override fun getPokemon(number: Int): PokemonApiResult? {
         val call = service.getPokemon(number)
@@ -43,9 +38,7 @@ class PokemonRepositoryImpl (private val cachedir: File) : PokemonRepository {
     }
 
 
-
-
-    }
+}
 
 
 

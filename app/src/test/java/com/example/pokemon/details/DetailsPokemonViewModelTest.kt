@@ -1,14 +1,11 @@
 package com.example.pokemon.details
 
-import android.view.View
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.model.PokemonApiResult
-import com.example.pokemon.api.model.PokemonResult
 import com.example.pokemon.api.model.PokemonTypeSlot
-import com.example.pokemon.api.model.PokemonsApiResult
 import com.example.pokemon.domain.PokemonType
 import com.example.pokemon.lista.PokemonAdapter
 import com.nhaarman.mockitokotlin2.doReturn
@@ -19,8 +16,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import org.junit.runner.manipulation.Ordering
-import org.mockito.internal.verification.api.VerificationData
 import org.mockito.verification.VerificationMode
 
 class DetailsPokemonViewModelTest {

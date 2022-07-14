@@ -41,6 +41,7 @@
                     android:orientation="vertical">
 
                     <TextView
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/height"
@@ -79,15 +80,7 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/card_margin"
-            android:paddingTop="12dp"
-            android:paddingEnd="@dimen/card_margin"
-            android:text="@string/breeding"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+
 
         <LinearLayout
             android:id="@+id/hasGenders"
@@ -97,42 +90,7 @@
             android:paddingStart="@dimen/card_margin"
             android:paddingTop="12dp"
             android:paddingEnd="@dimen/card_margin"
-            android:weightSum="120">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="40"
-                android:text="@string/gender" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_male_symbol"
-                app:tint="@color/colorMalePercent" />
-
-            <TextView
-                android:id="@+id/malePerc"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/card_margin"
-                android:layout_marginEnd="@dimen/card_margin"
-                android:layout_weight="20" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_female_symbol"
-                app:tint="@color/colorFemalePercent" />
-
-            <TextView
-                android:id="@+id/femalePerc"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/card_margin"
-                android:layout_weight="20" />
-
-        </LinearLayout>
+            android:weightSum="120"/>
 
         <LinearLayout
             android:id="@+id/genderless"

@@ -30,7 +30,7 @@ class PokemonAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.bindView(item, addFavoriteListener,removeFavoriteListener,onItemClick)
+        holder.bindView(item, addFavoriteListener, removeFavoriteListener, onItemClick)
     }
 
     fun update(it: List<PokemonItem?>) {
@@ -38,8 +38,6 @@ class PokemonAdapter(
         items.addAll(it)
         notifyDataSetChanged()
     }
-
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: PokemonItem?, addFavoriteListener: OnClickAddFavorite?, removeFavoriteListener: OnClickRemoveFavorite?, onItemClick: ((PokemonItem) -> Unit)?) = with(itemView) {
@@ -51,7 +49,7 @@ class PokemonAdapter(
             val favorite = findViewById<ImageButton>(R.id.favorite)
 
             item?.let {
-                itemView.setOnClickListener{
+                itemView.setOnClickListener {
                     onItemClick?.invoke(item)
                 }
                 Glide.with(itemView.context).load(it.image).into(ivPokemon)

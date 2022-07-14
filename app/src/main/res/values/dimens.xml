@@ -60,6 +60,6 @@
 
 
 
-        <dimen name="card_margin">8dp</dimen>
+        <dimen name="card_margin">13dp</dimen>
 
 </resources>

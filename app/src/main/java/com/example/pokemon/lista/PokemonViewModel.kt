@@ -21,30 +21,30 @@ class PokemonViewModel(
         val favoritePokemons = favoriteRepository.getAll()
 
         pokemons.postValue(usecase.getPokemons()?.map {
-                PokemonItem(
-                    it.imageUrl,
-                    it.name.replaceFirstChar { it.uppercase() },
-                    "Nº ${it.number.toString().padStart(3, '0')}",
-                    it.types[0].name,
-                    ColorType.getcolortype(it.types[0].name),
-                    try {
-                        it.types[1].name
+            PokemonItem(
+                it.imageUrl,
+                it.name.replaceFirstChar { it.uppercase() },
+                "Nº ${it.number.toString().padStart(3, '0')}",
+                it.types[0].name,
+                ColorType.getcolortype(it.types[0].name),
+                try {
+                    it.types[1].name
 
-                    } catch (e: IndexOutOfBoundsException) {
-                        null
-                    },
-                    try {
-                        ColorType.getcolortype(it.types[1].name)
+                } catch (e: IndexOutOfBoundsException) {
+                    null
+                },
+                try {
+                    ColorType.getcolortype(it.types[1].name)
 
-                    } catch (e: IndexOutOfBoundsException) {
-                        null
-                    },
-                    it.number,
+                } catch (e: IndexOutOfBoundsException) {
+                    null
+                },
+                it.number,
 
-                    favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null
-                )
-            }
+                favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null
             )
+        }
+        )
     }
 
     fun addFavorite(id: Int) {

@@ -27,7 +27,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         viewModel = ViewModelProvider(this, PokemonViewModelFactory(view.context))
             .get(PokemonViewModel::class.java)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        val adapter = PokemonAdapter(onAddFavoriteListener,onClickRemoveFavorite,onItemClick = :: onPokemonClick)
+        val adapter = PokemonAdapter(onAddFavoriteListener, onClickRemoveFavorite, onItemClick = ::onPokemonClick)
         recyclerView.adapter = adapter
         viewModel.pokemons.observe(viewLifecycleOwner, Observer {
 
@@ -46,7 +46,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     private val onAddFavoriteListener by lazy {
         object : OnClickAddFavorite {
             override fun onAddFavorite(pokemonItem: PokemonItem) {
-                viewModel.addFavorite (pokemonItem.id)
+                viewModel.addFavorite(pokemonItem.id)
                 Thread(Runnable {
                     viewModel.loadPokemons()
                 })
@@ -59,8 +59,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     private val onClickRemoveFavorite by lazy {
         object : OnClickRemoveFavorite {
             override fun onClickRemoveFavorite(pokemonItem: PokemonItem) {
-                viewModel.
-                removeFavorite (pokemonItem.id)
+                viewModel.removeFavorite(pokemonItem.id)
                 Thread(Runnable {
                     viewModel.loadPokemons()
                 })
@@ -71,13 +70,12 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
     }
 
-    private fun onPokemonClick (pokemonItem: PokemonItem) {
-        val intent = Intent (context, DetailsActivity::class.java).apply {
+    private fun onPokemonClick(pokemonItem: PokemonItem) {
+        val intent = Intent(context, DetailsActivity::class.java).apply {
             putExtra(EXTRA_POKEMON_NUMBER, pokemonItem.id)
         }
         startActivity(intent)
     }
-
 
 
 }

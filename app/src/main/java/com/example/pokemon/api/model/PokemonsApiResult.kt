@@ -24,25 +24,25 @@ data class PokemonApiResult(
     val height: Int,
     val weight: Int,
 
-) {
+    ) {
 
-data class  Sprites (
-    val other: OtherSprites
+    data class Sprites(
+        val other: OtherSprites
 
-)
+    )
 
-
-    data class PokemonStats (
+    data class PokemonStats(
         val base_stat: Int,
         val effort: Int,
         val stat: PokemonStatName
 
-            )
+    )
 
     data class PokemonStatName(
         val name: String
     )
-     class OtherSprites(
+
+    class OtherSprites(
         @SerializedName("official-artwork")
         val officialArtwork: OfficialArtwork
     )
