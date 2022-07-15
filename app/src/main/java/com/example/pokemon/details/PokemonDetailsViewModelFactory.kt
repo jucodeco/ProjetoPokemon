@@ -1,10 +1,11 @@
 package com.example.pokemon.details
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.pokemon.api.PokemonRepositoryImpl
-import com.example.pokemon.details.fragment.AboutFragment
+import com.example.pokemon.api.types.TypeRepository
+import com.example.pokemon.api.types.TypeRepositoryImpl
+import com.example.pokemon.lista.usecase.ViewPokemonList
 
 class PokemonDetailsViewModelFactory(private val context: DetailsActivity) : ViewModelProvider.Factory {
 
@@ -12,8 +13,9 @@ class PokemonDetailsViewModelFactory(private val context: DetailsActivity) : Vie
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return DetailsPokemonViewModel(
             PokemonRepositoryImpl(context.cacheDir),
+            TypeRepositoryImpl((context.cacheDir))
 
-            ) as T
+          ) as T
     }
 
 }

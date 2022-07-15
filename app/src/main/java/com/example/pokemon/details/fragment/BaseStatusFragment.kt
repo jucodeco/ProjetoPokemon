@@ -1,20 +1,24 @@
 package com.example.pokemon.details.fragment
 
-import android.animation.ObjectAnimator
-import android.annotation.SuppressLint
+
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemon.R
+import com.example.pokemon.details.DetailAdapter
 import com.example.pokemon.details.PokemonDetails
+import com.example.pokemon.details.PokemonDetailsType
 
 
 class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
     private var detail: PokemonDetails? = null
+
+    private var detailResistance: PokemonDetailsType? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +26,6 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
     }
 
-    @SuppressLint("ObjectAnimatorBinding")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -116,11 +119,12 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         }?.second ?:0
 
 
-
-
-
-
-
+        val recyclerView = view.findViewById<RecyclerView>(R.id.weaknessRecyclerView)
+        val recyclerViewResistance = view.findViewById<RecyclerView>(R.id.resistantRecycler)
+        val adapter = DetailAdapter(detail?.weakness)
+        val adapterRe = DetailAdapter (detail?.resistance)
+        recyclerView.adapter = adapter
+        recyclerViewResistance.adapter = adapterRe
     }
 
     companion object {

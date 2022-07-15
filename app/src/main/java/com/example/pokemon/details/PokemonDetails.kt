@@ -9,9 +9,16 @@ data class PokemonDetails(
     val stats: List<Pair<String, Int>>,
     val height: Int?,
     val weight: Int,
-    val backgroudColor: Int
+    val backgroudColor: Int,
+    val weakness: List<PokemonDetailsType>,
+    val resistance: List<PokemonDetailsType>
+
 
 ) : Serializable
 
+data class PokemonDetailsType (
+    val name: String,
+    val color: Int
+        )
 
 

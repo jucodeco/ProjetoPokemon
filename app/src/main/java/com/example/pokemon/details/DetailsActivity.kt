@@ -53,7 +53,7 @@ class DetailsActivity() : AppCompatActivity() {
 
         })
         Thread(Runnable {
-            viewModel.loadPokemonDetails(number)
+            viewModel.loadPokemonDetails(number )
         })
             .start()
     }
