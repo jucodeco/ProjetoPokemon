@@ -2,6 +2,7 @@ package com.example.pokemon.compare
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.pokemon.ColorType
 import com.example.pokemon.api.PokemonRepository
 import java.lang.IndexOutOfBoundsException
 
@@ -18,30 +19,46 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository) 
 
         val compare = PokemonCompare(
             pokemonCompareLeft?.sprites?.other?.officialArtwork?.front_default ?: "",
-            pokemonCompareRight?.sprites?.other?.officialArtwork?.front_default?: "",
-            pokemonCompareLeft?.name?: "",
+            pokemonCompareRight?.sprites?.other?.officialArtwork?.front_default ?: "",
+            pokemonCompareLeft?.name ?: "",
             pokemonCompareRight?.name ?: "",
             pokemonCompareRight?.types?.get(0)?.type?.name ?: "",
             try {
                 pokemonCompareRight?.types?.get(1)?.type?.name ?: ""
-            }catch (e: IndexOutOfBoundsException) {
+            } catch (e: IndexOutOfBoundsException) {
                 null
             },
             pokemonCompareLeft?.types?.get(0)?.type?.name ?: "",
 
             try {
                 pokemonCompareLeft?.types?.get(1)?.type?.name ?: ""
-            }catch (e: IndexOutOfBoundsException) {
+            } catch (e: IndexOutOfBoundsException) {
                 null
             },
+            ColorType.getcolortype(pokemonCompareRight?.types?.get(0)?.type?.name ?: ""),
+            try {
+                ColorType.getcolortype(pokemonCompareRight?.types?.get(1)?.type?.name ?: "")
 
-            )
+            } catch (e: IndexOutOfBoundsException) {
+                null
+
+            },
+            ColorType.getcolortype(pokemonCompareLeft?.types?.get(0)?.type?.name ?: ""),
+            try {
+                ColorType.getcolortype(pokemonCompareLeft?.types?.get(1)?.type?.name ?: "")
+
+            } catch (e: IndexOutOfBoundsException) {
+                null
+
+            }
+
+
+        )
 
         pokemonCompare.postValue(compare)
 
+
     }
-
-
 }
 
 

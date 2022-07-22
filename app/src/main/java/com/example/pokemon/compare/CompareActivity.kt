@@ -2,19 +2,16 @@ package com.example.pokemon.compare
 
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentCompareBinding
-import org.w3c.dom.Text
-
 
 class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
     private lateinit var binding: FragmentCompareBinding
@@ -59,12 +56,32 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             nameTypeRight1.text = it.typeRight1
             nameTypeRight2.text = it.typeRight2
 
+            nameTypeLeft1.setBackgroundResource(it.typeColorLeft1)
+
+            if (it.typeLeft2 != null && it.typeColorLeft2 != null) {
+                nameTypeLeft2.visibility = View.VISIBLE
+                nameTypeLeft2.text = it.typeLeft2
+                nameTypeLeft2.setBackgroundResource(it.typeColorLeft2)
+            } else {
+                nameTypeLeft2.visibility = View.GONE
+            }
+
+            nameTypeRight1.setBackgroundResource(it.typeColorRight1)
+
+            if (it.typeRight2 != null && it.typeColorRight2 != null) {
+                nameTypeRight2.visibility = View.VISIBLE
+                nameTypeRight2.text = it.typeRight2
+                nameTypeRight2.setBackgroundResource(it.typeColorRight2)
+            } else {
+                nameTypeRight2.visibility = View.GONE
+            }
+
 
         })
 
 
         Thread(Runnable {
-            viewModel.comparePokemon(numLeft,numRight)
+            viewModel.comparePokemon(numLeft, numRight)
         })
             .start()
 

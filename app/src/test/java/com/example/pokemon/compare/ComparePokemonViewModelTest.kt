@@ -15,7 +15,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
-import java.lang.IndexOutOfBoundsException
+
 
 
 class ComparePokemonViewModelTest {
@@ -68,10 +68,10 @@ class ComparePokemonViewModelTest {
                 "urlright",
                 "bulbasaur",
                 "ivysaur",
-                "poison",
                 "",
+                null,
                 "",
-                "",
+                null,
 
 
             )
@@ -112,10 +112,10 @@ class ComparePokemonViewModelTest {
                 "url2",
                 "bulbasaur",
                 "ivysaur",
-                "poison",
                 "",
+                null,
                 "",
-                "",
+                null,
 
 
             )
@@ -158,11 +158,11 @@ class ComparePokemonViewModelTest {
                 "url2",
                 "venusaur",
                 "charmander",
-                "grass",
                 "",
+                null,
                 "",
-                "",
-
+                null,
+               
 
 
             )

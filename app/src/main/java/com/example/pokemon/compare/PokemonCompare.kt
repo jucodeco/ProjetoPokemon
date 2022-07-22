@@ -14,7 +14,11 @@ data class PokemonCompare(
     val typeRight2: String?,
     val typeLeft1: String,
     val typeLeft2: String?,
-
+// Cor do tipo
+    val typeColorRight1: Int,
+    val typeColorRight2: Int?,
+    val typeColorLeft1: Int,
+    val typeColorLeft2: Int?
 
 
 
