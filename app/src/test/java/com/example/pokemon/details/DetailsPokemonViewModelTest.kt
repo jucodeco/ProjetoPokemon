@@ -26,8 +26,7 @@ class DetailsPokemonViewModelTest {
     private val observer = mock<Observer<PokemonDetails>>()
     private val pokemonRepository = mock<PokemonRepository>()
     private val typeRepository = mock<TypeRepository>()
-    private val detailsPokemonViewModel = DetailsPokemonViewModel(pokemonRepository,typeRepository)
-
+    private val detailsPokemonViewModel = DetailsPokemonViewModel(pokemonRepository, typeRepository)
 
 
     @Before
@@ -61,7 +60,17 @@ class DetailsPokemonViewModelTest {
         )
         detailsPokemonViewModel.loadPokemonDetails(4000)
         verify(observer).onChanged(
-            PokemonDetails("Ju", 4000, "url", listOf(Pair("nome", 2)), 40, 87, R.color.colorfire, listOf(PokemonDetailsType("water", R.color.colorwater)))
+            PokemonDetails(
+                "Ju",
+                4000,
+                "url",
+                listOf(Pair("nome", 2)),
+                40,
+                87,
+                R.color.colorfire,
+                listOf(PokemonDetailsType("water", R.color.colorwater)),
+                listOf(PokemonDetailsType("poison", R.color.colorpoison))
+            )
         )
 
     }
@@ -100,6 +109,8 @@ class DetailsPokemonViewModelTest {
             )
         )
 
+
+
         detailsPokemonViewModel.loadPokemonDetails(4000)
         verify(observer).onChanged(
             PokemonDetails(
@@ -113,6 +124,13 @@ class DetailsPokemonViewModelTest {
                 listOf(
                     PokemonDetailsType("bug", R.color.colorbug),
                     PokemonDetailsType("electric", R.color.colorelectric)
+                ),
+                listOf(
+                    PokemonDetailsType("poison", R.color.colorpoison)
+
+
+
+
                 )
             )
         )

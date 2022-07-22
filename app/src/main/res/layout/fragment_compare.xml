@@ -1,0 +1,37 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/firstPokemon"
+        layout="@layout/fragment_compare_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@id/firstArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/firstArrow"
+        layout="@layout/fragment_compare_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/firstPokemon"
+        app:layout_constraintEnd_toStartOf="@id/secondPokemon"
+        app:layout_constraintStart_toEndOf="@id/firstPokemon"
+        app:layout_constraintTop_toTopOf="@id/firstPokemon" />
+
+    <include
+        android:id="@+id/secondPokemon"
+        layout="@layout/fragment_compare_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/firstPokemon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/firstArrow"
+        app:layout_constraintTop_toTopOf="@id/firstPokemon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

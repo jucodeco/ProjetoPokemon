@@ -36,6 +36,14 @@
             >
 
         </activity>
+        <activity
+
+            android:name="com.example.pokemon.compare.CompareActivity"
+            android:exported="false"
+
+            >
+
+        </activity>
     </application>
 
 </manifest>

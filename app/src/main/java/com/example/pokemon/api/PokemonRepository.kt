@@ -9,4 +9,5 @@ interface PokemonRepository {
 
     fun listPokemons (limit: Int = 151): PokemonsApiResult?
     fun getPokemon(number: Int): PokemonApiResult?
+
 }

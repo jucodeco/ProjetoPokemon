@@ -26,7 +26,7 @@ class FavoritosFragment : Fragment(R.layout.fragment_favorite) {
         val progressfav = view.findViewById<ProgressBar>(R.id.progressfav)
         viewModel = ViewModelProvider(this, FavoritePokemonFactory(view.context))
             .get(FavoritePokemonViewModel::class.java)
-        val adapter = PokemonAdapter( null,null,null)
+        val adapter = PokemonAdapter( null,null,null,null)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = adapter
 

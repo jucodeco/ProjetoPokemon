@@ -3,7 +3,6 @@ package com.example.pokemon.favoritos.usecase
 
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.model.PokemonApiResult
-import com.example.pokemon.api.model.PokemonResult
 import com.example.pokemon.api.model.PokemonTypeSlot
 import com.example.pokemon.api.model.PokemonsApiResult
 import com.example.pokemon.domain.Pokemon

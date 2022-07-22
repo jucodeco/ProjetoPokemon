@@ -7,13 +7,10 @@ import com.example.pokemon.api.model.PokemonTypeSlot
 import com.example.pokemon.api.model.PokemonsApiResult
 import com.example.pokemon.domain.Pokemon
 import com.example.pokemon.domain.PokemonType
-import com.example.pokemon.favoritos.room.PokemonFavorite
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Test
 
 

@@ -1,8 +1,10 @@
 package com.example.pokemon.details.fragment
 
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -36,13 +38,17 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
         hpName.text = "hp"
 
-        hpStat.text = (detail?.stats?.firstOrNull{
-            it.first=="hp"
+        hpStat.text = (detail?.stats?.firstOrNull {
+            it.first == "hp"
         }?.second ?: 0).toString()
 
-        hpValue.progress = detail?.stats?.firstOrNull{
-            it.first=="hp"
-        }?.second ?: 0
+        val hpAnimator = ObjectAnimator.ofInt(hpValue,"progress",detail?.stats?.firstOrNull {
+            it.first == "hp"
+        }?.second ?: 0 )
+        hpAnimator.setStartDelay(1000L)
+        hpAnimator.setDuration(500)
+        hpAnimator.setInterpolator(DecelerateInterpolator())
+        hpAnimator.start()
 
         val attackInclude = view.findViewById<LinearLayout>(R.id.attack)
         val attackName = attackInclude.findViewById<TextView>(R.id.statName)
@@ -51,13 +57,18 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
         attackName.text = "attack"
 
-        attackStat.text = (detail?.stats?.firstOrNull{
-            it.first=="attack"
+        attackStat.text = (detail?.stats?.firstOrNull {
+            it.first == "attack"
         }?.second ?: 0).toString()
 
-        attackValue.progress = detail?.stats?.firstOrNull{
-            it.first=="attack"
-        }?.second?:0
+
+        val attackAnimator = ObjectAnimator.ofInt(attackValue,"progress", detail?.stats?.firstOrNull {
+            it.first == "attack"
+        }?.second ?: 0)
+        attackAnimator.setStartDelay(1000L)
+        attackAnimator.setDuration(500)
+        attackAnimator.setInterpolator(DecelerateInterpolator())
+        attackAnimator.start()
 
         val defenseInclude = view.findViewById<LinearLayout>(R.id.defense)
         val defenseName = defenseInclude.findViewById<TextView>(R.id.statName)
@@ -66,13 +77,17 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
         defenseName.text = "defense"
 
-        defenseStat.text = (detail?.stats?.firstOrNull{
-            it.first=="defense"
+        defenseStat.text = (detail?.stats?.firstOrNull {
+            it.first == "defense"
         }?.second ?: 0).toString()
 
-        defenseValue.progress = detail?.stats?.firstOrNull{
-            it.first=="defense"
-        }?.second?:0
+        val defenseAnimator = ObjectAnimator.ofInt(defenseValue, "progress", detail?.stats?.firstOrNull {
+            it.first == "defense"
+        }?.second ?: 0)
+        defenseAnimator.setStartDelay(1000L)
+        defenseAnimator.setDuration(500)
+        defenseAnimator.setInterpolator(DecelerateInterpolator())
+        defenseAnimator.start()
 
         val spArkInclude = view.findViewById<LinearLayout>(R.id.spArk)
         val spArkName = spArkInclude.findViewById<TextView>(R.id.statName)
@@ -81,13 +96,17 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
         spArkName.text = "special-attack"
 
-        spArkStat.text = (detail?.stats?.firstOrNull{
-            it.first=="special-attack"
+        spArkStat.text = (detail?.stats?.firstOrNull {
+            it.first == "special-attack"
         }?.second ?: 0).toString()
 
-        spArkValue.progress = detail?.stats?.firstOrNull{
+        val spArkAnimator = ObjectAnimator.ofInt(spArkValue, "progress",detail?.stats?.firstOrNull {
             it.first == "special-attack"
-        }?.second ?: 0
+        }?.second ?: 0 )
+        spArkAnimator.setStartDelay(1000L)
+        spArkAnimator.setDuration(500)
+        spArkAnimator.setInterpolator(DecelerateInterpolator())
+        spArkAnimator.start()
 
         val spDefInclude = view.findViewById<LinearLayout>(R.id.spDef)
         val spDefName = spDefInclude.findViewById<TextView>(R.id.statName)
@@ -96,13 +115,17 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
 
         spDefName.text = "special-defense"
 
-        spDefStat.text = (detail?.stats?.firstOrNull{
+        spDefStat.text = (detail?.stats?.firstOrNull {
             it.first == "special-defense"
         }?.second ?: 0).toString()
 
-        spDefValue.progress = detail?.stats?.firstOrNull{
+        val defAnimator = ObjectAnimator.ofInt(spDefValue, "progress", detail?.stats?.firstOrNull {
             it.first == "special-defense"
-        }?.second ?: 0
+        }?.second ?: 0)
+        defAnimator.setStartDelay(1000L)
+        defAnimator.setDuration(500)
+        defAnimator.setInterpolator(DecelerateInterpolator())
+        defAnimator.start()
 
         val speedInclude = view.findViewById<LinearLayout>(R.id.speed)
         val speedName = speedInclude.findViewById<TextView>(R.id.statName)
@@ -110,19 +133,23 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         val speedValue = speedInclude.findViewById<ProgressBar>(R.id.statValue)
 
         speedName.text = "speed"
-        speedStat.text = (detail?.stats?.firstOrNull{
+        speedStat.text = (detail?.stats?.firstOrNull {
             it.first == "speed"
-        }?.second ?:0).toString()
+        }?.second ?: 0).toString()
 
-        speedValue.progress = detail?.stats?.firstOrNull{
+        val speedAnimator = ObjectAnimator.ofInt(speedValue, "progress", detail?.stats?.firstOrNull {
             it.first == "speed"
-        }?.second ?:0
+        }?.second ?: 0)
+        speedAnimator.setStartDelay(1000L)
+        speedAnimator.setDuration(500)
+        speedAnimator.setInterpolator(DecelerateInterpolator())
+        speedAnimator.start()
 
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.weaknessRecyclerView)
         val recyclerViewResistance = view.findViewById<RecyclerView>(R.id.resistantRecycler)
         val adapter = DetailAdapter(detail?.weakness)
-        val adapterRe = DetailAdapter (detail?.resistance)
+        val adapterRe = DetailAdapter(detail?.resistance)
         recyclerView.adapter = adapter
         recyclerViewResistance.adapter = adapterRe
     }

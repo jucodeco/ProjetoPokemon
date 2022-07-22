@@ -35,7 +35,7 @@ public class LoginActivityJava extends AppCompatActivity {
 
                     editemail.requestFocus();
 
-                } else if (editemail.getText().toString().equals("juliana@gmail.com") &&
+                } else if (editemail.getText().toString().equals("ju") &&
                         editsenha.getText().toString().equals ("1234")){
                     Intent intent = new Intent(getApplicationContext(), MainActivityJava.class);
                     startActivity(intent);

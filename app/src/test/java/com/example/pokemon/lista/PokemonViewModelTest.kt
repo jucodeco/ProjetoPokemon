@@ -1,6 +1,7 @@
 package com.example.pokemon.lista
 
 
+import android.widget.CheckBox
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorite
 import com.example.pokemon.lista.usecase.ViewPokemonList
@@ -17,6 +18,7 @@ import com.example.pokemon.domain.PokemonType
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Before
+import org.junit.runner.manipulation.Ordering
 
 
 class PokemonViewModelTest {
@@ -56,7 +58,7 @@ class PokemonViewModelTest {
         viewModel.loadPokemons()
         verify(observer).onChanged(
             listOf(
-                PokemonItem("imagem", "Pokemonname", "Nº 001", "flying", R.color.colorflying, null, null, 1, true),
+                PokemonItem("imagem", "Pokemonname", "Nº 001", "flying", R.color.colorflying, null, null, 1, true, ),
                 PokemonItem("imagem", "Pokemon2", "Nº 002", "flying", R.color.colorflying, "poison", R.color.colorpoison, 2, false)
             )
         )

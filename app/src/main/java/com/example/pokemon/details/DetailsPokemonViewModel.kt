@@ -17,7 +17,6 @@ class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository, 
 
         val pokemon = pokemonRepository.getPokemon(number)
 
-
         pokemon?.let {
             val type = typeRepository.typePokemon(pokemon.types[0].type.name)
             type?.let {
