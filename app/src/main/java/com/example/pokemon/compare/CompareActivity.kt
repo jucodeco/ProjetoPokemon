@@ -38,16 +38,27 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
         val rightInclude = findViewById<CardView>(R.id.secondPokemon)
         val rightImage = rightInclude.findViewById<ImageView>(R.id.pokeball)
 
-        val nameLeft = leftInclude.findViewById<TextView>(R.id.namePokemon)
-        val nameRight = rightInclude.findViewById<TextView>(R.id.namePokemon)
+        val namePokemonLeft = leftInclude.findViewById<TextView>(R.id.namePokemon)
+        val namePokemonRight = rightInclude.findViewById<TextView>(R.id.namePokemon)
+
+        val nameTypeLeft1 = leftInclude.findViewById<TextView>(R.id.pokemonType1)
+        val nameTypeLeft2 = leftInclude.findViewById<TextView>(R.id.pokemonType2)
+        val nameTypeRight1 = rightInclude.findViewById<TextView>(R.id.pokemonType1)
+        val nameTypeRight2 = rightInclude.findViewById<TextView>(R.id.pokemonType2)
 
         viewModel.pokemonCompare.observe(this, Observer {
 
             Glide.with(this).load(it.imageLeft).into(leftImage)
             Glide.with(this).load(it.imageRight).into(rightImage)
 
-            nameLeft.text = it.nameLeft
-            nameRight.text = it.nameRight
+            namePokemonLeft.text = it.nameLeft
+            namePokemonRight.text = it.nameRight
+
+            nameTypeLeft1.text = it.typeLeft1
+            nameTypeLeft2.text = it.typeLeft2
+            nameTypeRight1.text = it.typeRight1
+            nameTypeRight2.text = it.typeRight2
+
 
         })
 

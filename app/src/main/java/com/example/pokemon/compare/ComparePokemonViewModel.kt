@@ -3,6 +3,7 @@ package com.example.pokemon.compare
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.api.PokemonRepository
+import java.lang.IndexOutOfBoundsException
 
 
 class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository) : ViewModel() {
@@ -20,11 +21,21 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository) 
             pokemonCompareRight?.sprites?.other?.officialArtwork?.front_default?: "",
             pokemonCompareLeft?.name?: "",
             pokemonCompareRight?.name ?: "",
+            pokemonCompareRight?.types?.get(0)?.type?.name ?: "",
+            try {
+                pokemonCompareRight?.types?.get(1)?.type?.name ?: ""
+            }catch (e: IndexOutOfBoundsException) {
+                null
+            },
+            pokemonCompareLeft?.types?.get(0)?.type?.name ?: "",
 
+            try {
+                pokemonCompareLeft?.types?.get(1)?.type?.name ?: ""
+            }catch (e: IndexOutOfBoundsException) {
+                null
+            },
 
-
-
-        )
+            )
 
         pokemonCompare.postValue(compare)
 

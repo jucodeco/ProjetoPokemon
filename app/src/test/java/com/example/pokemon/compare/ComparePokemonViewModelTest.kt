@@ -5,7 +5,6 @@ import androidx.lifecycle.Observer
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.model.PokemonApiResult
 import com.example.pokemon.api.model.PokemonTypeSlot
-import com.example.pokemon.domain.Pokemon
 import com.example.pokemon.domain.PokemonType
 import com.example.pokemon.lista.usecase.ViewPokemonList
 import com.nhaarman.mockitokotlin2.doReturn
@@ -16,6 +15,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
+import java.lang.IndexOutOfBoundsException
 
 
 class ComparePokemonViewModelTest {
@@ -68,8 +68,13 @@ class ComparePokemonViewModelTest {
                 "urlright",
                 "bulbasaur",
                 "ivysaur",
+                "poison",
+                "",
+                "",
+                "",
 
-                )
+
+            )
 
 
         )
@@ -107,8 +112,13 @@ class ComparePokemonViewModelTest {
                 "url2",
                 "bulbasaur",
                 "ivysaur",
+                "poison",
+                "",
+                "",
+                "",
 
-                )
+
+            )
 
 
         )
@@ -148,9 +158,14 @@ class ComparePokemonViewModelTest {
                 "url2",
                 "venusaur",
                 "charmander",
+                "grass",
+                "",
+                "",
+                "",
 
 
-                )
+
+            )
 
 
         )
