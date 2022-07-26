@@ -44,8 +44,9 @@
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_base_status.xml" value="0.244171142578125" />
         <entry key="app/src/main/res/layout/fragment_compare.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_compare_card.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_compare_card.xml" value="0.28610354223433243" />
         <entry key="app/src/main/res/layout/fragment_compare_image.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_compare_types.xml" value="0.12997007268063274" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.2248995983935743" />
         <entry key="app/src/main/res/layout/fragment_details_pokedex.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.1" />
@@ -71,7 +72,7 @@
         <entry key="app/src/main/res/layout/pokemon_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recycler_poke_item_view.xml" value="0.125" />
         <entry key="app/src/main/res/layout/recycler_poke_item_view_detail.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/single_base_start.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/single_base_start.xml" value="0.45" />
         <entry key="app/src/main/res/layout/single_base_stat.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/telaprincipal.xml" value="0.1" />

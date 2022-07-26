@@ -3,6 +3,7 @@ package com.example.pokemon.compare
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.pokemon.api.PokemonRepositoryImpl
+import com.example.pokemon.api.types.TypeRepositoryImpl
 
 
 class PokemonCompareViewModelFactory(private val context: CompareActivity) : ViewModelProvider.Factory {
@@ -10,8 +11,8 @@ class PokemonCompareViewModelFactory(private val context: CompareActivity) : Vie
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return ComparePokemonViewModel(
-            PokemonRepositoryImpl(context.cacheDir)
-
+            PokemonRepositoryImpl(context.cacheDir),
+            TypeRepositoryImpl((context.cacheDir))
 
         ) as T
     }

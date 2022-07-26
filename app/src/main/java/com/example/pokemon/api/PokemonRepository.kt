@@ -8,6 +8,6 @@ import com.example.pokemon.api.model.PokemonsApiResult
 interface PokemonRepository {
 
     fun listPokemons (limit: Int = 151): PokemonsApiResult?
-    fun getPokemon(number: Int): PokemonApiResult?
+    fun getPokemon(number: Int): PokemonApiResult
 
 }

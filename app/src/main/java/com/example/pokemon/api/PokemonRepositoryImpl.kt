@@ -31,10 +31,10 @@ class PokemonRepositoryImpl(private val cachedir: File) : PokemonRepository {
         return call.execute().body()
     }
 
-    override fun getPokemon(number: Int): PokemonApiResult? {
+    override fun getPokemon(number: Int): PokemonApiResult {
         val call = service.getPokemon(number)
 
-        return call.execute().body()
+        return call.execute().body()!!
     }
 
 

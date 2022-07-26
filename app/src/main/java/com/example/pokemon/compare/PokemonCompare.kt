@@ -1,5 +1,6 @@
 package com.example.pokemon.compare
 
+import com.example.pokemon.details.PokemonDetailsType
 import java.io.Serializable
 
 data class PokemonCompare(
@@ -7,8 +8,8 @@ data class PokemonCompare(
     val imageLeft: String,
     val imageRight: String,
    //Nome
-    val nameLeft: String,
-    val nameRight: String,
+    val nameLeft: String?,
+    val nameRight: String?,
 //Tipos
     val typeRight1: String,
     val typeRight2: String?,
@@ -18,16 +19,17 @@ data class PokemonCompare(
     val typeColorRight1: Int,
     val typeColorRight2: Int?,
     val typeColorLeft1: Int,
-    val typeColorLeft2: Int?
-
-
+    val typeColorLeft2: Int?,
+    // Status
+    val statsLeft: List<Pair<String,Int>>,
+    val statsRight: List<Pair<String,Int>>,
 
 
 
 
     ) : Serializable
 
-data class PokemonDetailsType (
+data class PokemonCompareType (
     val name: String,
     val color: Int
 )

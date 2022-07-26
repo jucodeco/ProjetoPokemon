@@ -3,17 +3,18 @@
     android:id="@+id/cardView_poke"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="300dp"
-    android:layout_height="250dp"
+    android:layout_width="200dp"
+    android:layout_height="746dp"
     android:layout_marginStart="26dp"
     android:layout_marginTop="21dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="227dp"
+        android:layout_height="746dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp">
+
 
         <ImageView
             android:id="@+id/pokeball"
@@ -23,34 +24,36 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/rotated_pokeball"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.33"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
-
-        <TextView
-            android:id="@+id/namePokemon"
-            android:layout_width="95dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.658"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokeball" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="4dp" />
 
         <LinearLayout
-            android:layout_width="109dp"
-            android:layout_height="33dp"
+            android:id="@+id/linearLayout"
+            android:layout_width="170dp"
+            android:layout_height="83dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namePokemon"
+            app:layout_constraintTop_toBottomOf="@+id/pokeball"
             tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/namePokemon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#313131"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNumber"
+                tools:text="Charmander" />
 
             <TextView
                 android:id="@+id/pokemonType1"
@@ -76,6 +79,83 @@
 
 
         </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="191dp"
+            android:layout_height="175dp"
+            android:layout_marginTop="25dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/statContainer"
+                android:layout_width="177dp"
+                android:layout_height="144dp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/hpPokemon"
+                    layout="@layout/single_base_start" />
+
+                <include
+                    android:id="@+id/attackPokemon"
+                    layout="@layout/single_base_start" />
+
+                <include
+                    android:id="@+id/defensePokemon"
+                    layout="@layout/single_base_start" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_Weak"
+            android:layout_width="187dp"
+            android:layout_height="259dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            tools:layout_editor_absoluteX="11dp"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/card_margin"
+                    android:paddingEnd="@dimen/card_margin"
+                    android:paddingBottom="12dp"
+                    android:text="@string/resistant_to"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerViewWeakness"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:listitem="@layout/type_weakness_resistance" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
