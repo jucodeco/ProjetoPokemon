@@ -1,6 +1,7 @@
 package com.example.pokemon.compare
 
 import com.example.pokemon.details.PokemonDetailsType
+import com.example.pokemon.domain.Pokemon
 import java.io.Serializable
 
 data class PokemonCompare(
@@ -28,9 +29,8 @@ data class PokemonCompare(
     val resistanceRight: List<PokemonCompareType>,
 
 
-    val weaknessLeft: List <PokemonCompareType>,
-    val weaknessRight: List <PokemonCompareType>,
-
+    val weaknessLeft: List<PokemonCompareType>?,
+    val weaknessRight: List<PokemonCompareType>?
 
 
     ) : Serializable

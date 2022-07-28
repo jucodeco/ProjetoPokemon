@@ -235,7 +235,6 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
 
 
-
         })
 
         Thread(Runnable {
