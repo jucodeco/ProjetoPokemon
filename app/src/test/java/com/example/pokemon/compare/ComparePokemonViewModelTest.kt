@@ -2,11 +2,12 @@ package com.example.pokemon.compare
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.model.PokemonApiResult
 import com.example.pokemon.api.model.PokemonTypeSlot
+import com.example.pokemon.api.types.TypeRepository
 import com.example.pokemon.domain.PokemonType
-import com.example.pokemon.lista.usecase.ViewPokemonList
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -24,9 +25,8 @@ class ComparePokemonViewModelTest {
     var rule: TestRule = InstantTaskExecutorRule()
     private val observer = mock<Observer<PokemonCompare>>()
     private val pokemonRepository = mock<PokemonRepository>()
-    private val comparePokemonViewModel = ComparePokemonViewModel(pokemonRepository)
-    private val viewPokemonList = mock<ViewPokemonList>()
-
+    private val typeRepository = mock<TypeRepository>()
+    private val comparePokemonViewModel = ComparePokemonViewModel(pokemonRepository,typeRepository)
 
     @Before
     fun setup() {
@@ -72,6 +72,11 @@ class ComparePokemonViewModelTest {
                 null,
                 "",
                 null,
+                R.color.colorgrass,
+                R.color.colorpoison,
+                R.color.colorgrass,
+                R.color.colorpoison,
+
 
 
             )
@@ -124,52 +129,8 @@ class ComparePokemonViewModelTest {
         )
     }
 
-    @Test
-    fun `given my pokemon repository show on screen the name of the two pokemons`() {
-        whenever(pokemonRepository.getPokemon(5)).doReturn(
-            PokemonApiResult(
-                5,
-                "venusaur",
-                listOf(PokemonTypeSlot(5, PokemonType("grass"))),
-                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("url1"))),
-                listOf(PokemonApiResult.PokemonStats(45, 49, PokemonApiResult.PokemonStatName("bulbasaur"))),
-                7, 69
-            )
 
 
-        )
-        whenever(pokemonRepository.getPokemon(6)).doReturn(
-            PokemonApiResult(
-                6,
-                "charmander",
-                listOf(PokemonTypeSlot(6, PokemonType("grass"))),
-                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("url2"))),
-                listOf(PokemonApiResult.PokemonStats(45, 49, PokemonApiResult.PokemonStatName("bulbasaur"))),
-                7, 69
-            )
-
-
-        )
-
-        comparePokemonViewModel.comparePokemon(5, 6)
-        verify(observer).onChanged(
-            PokemonCompare(
-                "url1",
-                "url2",
-                "venusaur",
-                "charmander",
-                "",
-                null,
-                "",
-                null,
-               
-
-
-            )
-
-
-        )
-    }
 }
 
 

@@ -24,6 +24,12 @@ data class PokemonCompare(
     val statsLeft: List<Pair<String,Int>>,
     val statsRight: List<Pair<String,Int>>,
 
+    val resistanceLeft: List<PokemonCompareType>,
+    val resistanceRight: List<PokemonCompareType>,
+
+
+    val weaknessLeft: List <PokemonCompareType>,
+    val weaknessRight: List <PokemonCompareType>,
 
 
 
@@ -31,5 +37,6 @@ data class PokemonCompare(
 
 data class PokemonCompareType (
     val name: String,
-    val color: Int
+    val color: Int,
+
 )

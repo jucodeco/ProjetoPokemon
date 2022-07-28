@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView_poke"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_poke"
     android:layout_width="200dp"
-    android:layout_height="746dp"
-    android:layout_marginStart="26dp"
-    android:layout_marginTop="21dp"
-    >
+    android:layout_height="865dp"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="227dp"
-        android:layout_height="746dp"
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="865dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp">
 
@@ -34,11 +34,11 @@
             android:layout_width="170dp"
             android:layout_height="83dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokeball"
             tools:ignore="MissingConstraints">
@@ -84,9 +84,8 @@
             android:id="@+id/cardView"
             android:layout_width="191dp"
             android:layout_height="175dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="8dp"
             app:cardCornerRadius="6dp"
-            app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -119,17 +118,18 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView_Weak"
-            android:layout_width="187dp"
-            android:layout_height="259dp"
+            android:id="@+id/cardView_re"
+            android:layout_width="181dp"
+            android:layout_height="165dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            tools:layout_editor_absoluteX="11dp"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="11dp">
 
             <LinearLayout
+                android:id="@+id/recycle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -146,19 +146,63 @@
                     android:textSize="18sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/RecyclerViewWeakness"
+                    android:id="@+id/resistantRecyclerCompare"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:spanCount="2"
+                    tools:listitem="@layout/type_weakness_resistance" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_Weak"
+            android:layout_width="181dp"
+            android:layout_height="165dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@+id/cardView_re"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="11dp">
+
+            <LinearLayout
+                android:id="@+id/recycleWeak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/card_margin"
+                    android:paddingEnd="@dimen/card_margin"
+                    android:paddingBottom="12dp"
+                    android:text="@string/weak_to"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/weakRecyclerCompare"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:spanCount="2"
                     tools:listitem="@layout/type_weakness_resistance" />
 
+
             </LinearLayout>
+
+
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
 
 
 

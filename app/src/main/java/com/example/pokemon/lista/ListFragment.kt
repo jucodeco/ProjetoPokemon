@@ -13,6 +13,7 @@ import com.example.pokemon.R
 import com.example.pokemon.compare.CompareActivity
 import com.example.pokemon.compare.CompareActivity.Companion.COMPARE_POKEMON_LEFT
 import com.example.pokemon.compare.CompareActivity.Companion.COMPARE_POKEMON_RIGHT
+
 import com.example.pokemon.details.DetailsActivity
 import com.example.pokemon.details.DetailsActivity.Companion.EXTRA_POKEMON_NUMBER
 import com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -43,8 +43,8 @@
         <entry key="app/src/main/res/layout/fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_base_status.xml" value="0.244171142578125" />
-        <entry key="app/src/main/res/layout/fragment_compare.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_compare_card.xml" value="0.28610354223433243" />
+        <entry key="app/src/main/res/layout/fragment_compare.xml" value="0.2539936102236422" />
+        <entry key="app/src/main/res/layout/fragment_compare_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_compare_image.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_compare_types.xml" value="0.12997007268063274" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.2248995983935743" />
@@ -76,7 +76,7 @@
         <entry key="app/src/main/res/layout/single_base_stat.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.10346301838392476" />
         <entry key="app/src/main/res/layout/telaprincipal.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/type_weakness_resistance.xml" value="0.10346301838392476" />
+        <entry key="app/src/main/res/layout/type_weakness_resistance.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_navigation_menu.xml" value="0.18255664814023087" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.18255664814023087" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_close.xml" value="0.1" />

@@ -2,6 +2,8 @@ package com.example.pokemon.compare
 
 
 import android.animation.ObjectAnimator
+import android.content.ContentProvider
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
@@ -11,21 +13,28 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentCompareBinding
+import com.example.pokemon.details.DetailAdapter
+import com.example.pokemon.lista.PokemonViewModel
+import com.example.pokemon.lista.PokemonViewModelFactory
 
 
 class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
     private lateinit var binding: FragmentCompareBinding
     private lateinit var viewModel: ComparePokemonViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = com.example.pokemon.databinding.FragmentCompareBinding.inflate(layoutInflater)
+        binding = FragmentCompareBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -35,19 +44,19 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
         viewModel = ViewModelProvider(this, PokemonCompareViewModelFactory(this))
             .get(ComparePokemonViewModel::class.java)
 
-        val leftInclude = findViewById<CardView>(R.id.firstPokemon)
-        val leftImage = leftInclude.findViewById<ImageView>(R.id.pokeball)
+        val leftCard = findViewById<CardView>(R.id.firstPokemon)
+        val leftImage = leftCard.findViewById<ImageView>(R.id.pokeball)
 
-        val rightInclude = findViewById<CardView>(R.id.secondPokemon)
-        val rightImage = rightInclude.findViewById<ImageView>(R.id.pokeball)
+        val rightCard = findViewById<CardView>(R.id.secondPokemon)
+        val rightImage = rightCard.findViewById<ImageView>(R.id.pokeball)
 
-        val namePokemonLeft = leftInclude.findViewById<TextView>(R.id.namePokemon)
-        val namePokemonRight = rightInclude.findViewById<TextView>(R.id.namePokemon)
+        val namePokemonLeft = leftCard.findViewById<TextView>(R.id.namePokemon)
+        val namePokemonRight = rightCard.findViewById<TextView>(R.id.namePokemon)
 
-        val nameTypeLeft1 = leftInclude.findViewById<TextView>(R.id.pokemonType1)
-        val nameTypeLeft2 = leftInclude.findViewById<TextView>(R.id.pokemonType2)
-        val nameTypeRight1 = rightInclude.findViewById<TextView>(R.id.pokemonType1)
-        val nameTypeRight2 = rightInclude.findViewById<TextView>(R.id.pokemonType2)
+        val nameTypeLeft1 = leftCard.findViewById<TextView>(R.id.pokemonType1)
+        val nameTypeLeft2 = leftCard.findViewById<TextView>(R.id.pokemonType2)
+        val nameTypeRight1 = rightCard.findViewById<TextView>(R.id.pokemonType1)
+        val nameTypeRight2 = rightCard.findViewById<TextView>(R.id.pokemonType2)
 
         viewModel.pokemonCompare.observe(this, Observer {
 
@@ -138,8 +147,8 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             defenseLeftAnimator.setInterpolator(DecelerateInterpolator())
             defenseLeftAnimator.start()
 
-            val hpIncludeRight = findViewById<CardView>(R.id.secondPokemon)
-            val hpRight = hpIncludeRight.findViewById<LinearLayout>(R.id.hpPokemon)
+
+            val hpRight = rightCard.findViewById<LinearLayout>(R.id.hpPokemon)
             val hpNameRight = hpRight.findViewById<TextView>(R.id.statName)
             val hpStatRight = hpRight.findViewById<TextView>(R.id.stat)
             val hpValueRight = hpRight.findViewById<ProgressBar>(R.id.statValue)
@@ -159,8 +168,8 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             hpRightAnimator.start()
 
 
-            val attackIncludeRight = findViewById<CardView>(R.id.secondPokemon)
-            val attackRight = attackIncludeRight.findViewById<LinearLayout>(R.id.attackPokemon)
+
+            val attackRight = rightCard.findViewById<LinearLayout>(R.id.attackPokemon)
             val attackRightName = attackRight.findViewById<TextView>(R.id.statName)
             val attackRightStat = attackRight.findViewById<TextView>(R.id.stat)
             val attackRightValue = attackRight.findViewById<ProgressBar>(R.id.statValue)
@@ -179,8 +188,8 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             attackRightAnimator.setInterpolator(DecelerateInterpolator())
             attackRightAnimator.start()
 
-            val defenseIncludeRight = findViewById<CardView>(R.id.secondPokemon)
-            val defenseRight = defenseIncludeRight.findViewById<LinearLayout>(R.id.defensePokemon)
+
+            val defenseRight = rightCard.findViewById<LinearLayout>(R.id.defensePokemon)
             val defenseRightName = defenseRight.findViewById<TextView>(R.id.statName)
             val defenseRightStat = defenseRight.findViewById<TextView>(R.id.stat)
             val defenseRightValue = defenseRight.findViewById<ProgressBar>(R.id.statValue)
@@ -200,8 +209,34 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             defenseRightAnimator.start()
 
 
-        })
+            val recyclerViewLeftResistant = leftCard.findViewById<RecyclerView>(R.id.resistantRecyclerCompare)
+            val recyclerViewRightResistant = rightCard.findViewById<RecyclerView>(R.id.resistantRecyclerCompare)
 
+            recyclerViewLeftResistant.layoutManager = LinearLayoutManager(this)
+            recyclerViewRightResistant.layoutManager = LinearLayoutManager(this)
+
+            val adapterLeftResistance = CompareAdapter(it.resistanceLeft)
+            val adapterRightResistance = CompareAdapter(it.resistanceRight)
+
+            recyclerViewLeftResistant.adapter = adapterLeftResistance
+            recyclerViewRightResistant.adapter = adapterRightResistance
+
+            val recyclerViewLeftWeak = leftCard.findViewById<RecyclerView>(R.id.weakRecyclerCompare)
+            val recyclerViewRightWeak = rightCard.findViewById<RecyclerView>(R.id.weakRecyclerCompare)
+
+            recyclerViewLeftWeak.layoutManager = LinearLayoutManager(this)
+            recyclerViewRightWeak.layoutManager = LinearLayoutManager(this)
+
+            val adapterLeftWeak = CompareAdapter(it.weaknessLeft)
+            val adapterRightWeak = CompareAdapter (it.weaknessRight)
+
+            recyclerViewLeftWeak.adapter = adapterLeftWeak
+            recyclerViewRightWeak.adapter = adapterRightWeak
+
+
+
+
+        })
 
         Thread(Runnable {
             viewModel.comparePokemon(numLeft, numRight)
