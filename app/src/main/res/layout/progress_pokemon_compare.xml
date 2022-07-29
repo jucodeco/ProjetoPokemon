@@ -12,12 +12,14 @@
         android:id="@+id/statName"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+
         android:layout_weight="40" />
 
     <TextView
         android:id="@+id/stat"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+
         android:layout_weight="20" />
 
 
@@ -34,8 +36,8 @@
         android:id="@+id/imageprogressbar"
         android:layout_width="8dp"
         android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
         android:layout_weight="8"
-        android:layout_marginLeft="12dp"
         android:src="@drawable/ic_compare_red" />
 
 </LinearLayout>

@@ -301,11 +301,11 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             spArkRightName.text = "special-attack"
 
-            spArkRightStat.text = (it.statsLeft.firstOrNull {
+            spArkRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "special-attack"
             }?.second ?: 0).toString()
 
-            val spArkRightAnimator = ObjectAnimator.ofInt(spArkRightValue, "progress", it?.statsLeft?.firstOrNull {
+            val spArkRightAnimator = ObjectAnimator.ofInt(spArkRightValue, "progress", it?.statsRight?.firstOrNull {
                 it.first == "special-attack"
             }?.second ?: 0)
 

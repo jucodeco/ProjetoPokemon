@@ -169,59 +169,35 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
                                         typeResistanceRight,
                                         typeWeakLeft ,
                                         typeWeakRight,
-                                        if (pokemonLeftHpValue > pokemonRightHpValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon( pokemonLeftHpValue , pokemonRightHpValue),
 
-                                        if (pokemonRightHpValue >= pokemonLeftHpValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon(pokemonRightHpValue , pokemonLeftHpValue),
 
-                                        if (pokemonLeftAttackValue > pokemonRightAttackValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon(pokemonLeftAttackValue, pokemonRightAttackValue),
 
-                                        if (pokemonRightAttackValue >= pokemonLeftAttackValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon(pokemonRightAttackValue, pokemonLeftAttackValue),
 
-                                        if (pokemonLeftDefenseValue > pokemonRightDefenseValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon(pokemonLeftDefenseValue , pokemonRightDefenseValue),
 
-                                        if (pokemonRightDefenseValue > pokemonLeftDefenseValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonRightDefenseValue , pokemonLeftDefenseValue),
 
-                                        if (pokemonLeftSpArkValue > pokemonRightSpArkValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonLeftSpArkValue , pokemonRightSpArkValue),
 
-                                        if (pokemonRightSpArkValue > pokemonLeftSpArkValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonRightSpArkValue , pokemonLeftSpArkValue),
 
-                                        if (pokemonLeftSpDefValue > pokemonRightSpDefValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonLeftSpDefValue , pokemonRightSpDefValue),
 
-                                        if (pokemonRightSpDefValue > pokemonLeftSpDefValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonRightSpDefValue , pokemonLeftSpDefValue),
 
-                                        if (pokemonLeftSpeedValue > pokemonRightSpeedValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+                                        getStatsIcon (pokemonLeftSpeedValue , pokemonRightSpeedValue),
 
-                                        if (pokemonRightSpeedValue > pokemonLeftSpeedValue)
-                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red
+                                        getStatsIcon( pokemonRightSpeedValue ,pokemonLeftSpeedValue)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        )
+                                    )
 
 
                                     pokemonCompare.postValue(compare)
@@ -234,7 +210,14 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
                         }
                     }
 
+    private fun getStatsIcon(pokemonStatsValueFirst: Int, pokemonStatsValueSecond: Int) = when {
+        pokemonStatsValueFirst > pokemonStatsValueSecond -> R.drawable.ic_compare_green
+        pokemonStatsValueFirst < pokemonStatsValueSecond -> R.drawable.ic_compare_red
+        else -> R.drawable.ic_compare_yellow
 
-                }
+    }
+
+
+}
 
 
