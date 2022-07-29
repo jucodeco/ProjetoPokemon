@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/card_margin"
+    android:paddingEnd="@dimen/card_margin"
+    android:weightSum="100">
+
+
+    <TextView
+        android:id="@+id/statName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="40" />
+
+    <TextView
+        android:id="@+id/stat"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20" />
+
+
+    <ProgressBar
+        android:id="@+id/statValue"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="35"
+        android:indeterminate="false"
+        android:max="200" />
+
+    <ImageView
+        android:id="@+id/imageprogressbar"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/ic_compare_red" />
+
+</LinearLayout>

@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView_poke"
-    android:layout_width="200dp"
+    android:layout_width="300dp"
     android:layout_height="865dp"
     android:layout_marginStart="0dp"
     android:layout_marginTop="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="865dp"
+        android:layout_width="443dp"
+        android:layout_height="872dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp">
 
@@ -24,10 +24,10 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/rotated_pokeball"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintHorizontal_bias="0.159"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="4dp" />
+            tools:layout_editor_absoluteY="-1dp" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -38,7 +38,7 @@
             android:layout_marginEnd="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokeball"
             tools:ignore="MissingConstraints">
@@ -80,10 +80,11 @@
 
         </LinearLayout>
 
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="191dp"
-            android:layout_height="175dp"
+            android:layout_width="204dp"
+            android:layout_height="299dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="6dp"
             app:cardUseCompatPadding="true"
@@ -93,8 +94,8 @@
 
             <LinearLayout
                 android:id="@+id/statContainer"
-                android:layout_width="177dp"
-                android:layout_height="144dp"
+                android:layout_width="169dp"
+                android:layout_height="271dp"
                 android:layout_margin="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
@@ -103,15 +104,27 @@
 
                 <include
                     android:id="@+id/hpPokemon"
-                    layout="@layout/single_base_start" />
+                    layout="@layout/progress_pokemon_compare" />
 
                 <include
                     android:id="@+id/attackPokemon"
-                    layout="@layout/single_base_start" />
+                    layout="@layout/progress_pokemon_compare" />
 
                 <include
                     android:id="@+id/defensePokemon"
-                    layout="@layout/single_base_start" />
+                    layout="@layout/progress_pokemon_compare" />
+
+                <include
+                    android:id="@+id/spArkPokemon"
+                    layout="@layout/progress_pokemon_compare" />
+
+                <include
+                    android:id="@+id/spDefPokemon"
+                    layout="@layout/progress_pokemon_compare" />
+
+                <include
+                    android:id="@+id/speedPokemon"
+                    layout="@layout/progress_pokemon_compare" />
 
 
             </LinearLayout>
@@ -121,12 +134,13 @@
             android:id="@+id/cardView_re"
             android:layout_width="181dp"
             android:layout_height="165dp"
+            android:layout_marginStart="4dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="11dp">
+            tools:ignore="MissingConstraints">
 
             <LinearLayout
                 android:id="@+id/recycle"
@@ -157,17 +171,18 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView_Weak"
             android:layout_width="181dp"
             android:layout_height="165dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView_re"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="11dp">
+            tools:ignore="MissingConstraints">
 
             <LinearLayout
                 android:id="@+id/recycleWeak"

@@ -3,6 +3,7 @@ package com.example.pokemon.compare
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
+import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.types.TypeRepository
 import java.lang.IndexOutOfBoundsException
@@ -24,10 +25,7 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
 
             type?.let {
 
-
-
-
-                        val secondWeakLeft = type.damage_relations.double_damage_from.filter { type ->
+                val typeWeakLeft = type.damage_relations.double_damage_from.filter { type ->
                             pokemonCompareRight.types.any {
                                 it.type.name == type.name
                             }
@@ -61,7 +59,7 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
 
 
 
-                                    val secondWeakRight = type.damage_relations.double_damage_from.filter { type ->
+                                    val typeWeakRight = type.damage_relations.double_damage_from.filter { type ->
                                         pokemonCompareLeft.types.any {
                                             it.type.name == type.name
                                         }
@@ -71,6 +69,56 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
                                         PokemonCompareType(it.name, ColorType.getcolortype(it.name))
 
                                     }
+
+                            val pokemonLeftHpValue =  pokemonCompareLeft.stats.firstOrNull {
+                                    it.stat.name == "hp"
+                                }?.base_stat ?:0
+
+                                  val pokemonRightHpValue  = pokemonCompareRight.stats.firstOrNull {
+                                    it.stat.name == "hp"
+                                }?.base_stat ?:0
+
+                            val pokemonLeftAttackValue =  pokemonCompareLeft.stats.firstOrNull {
+                                it.stat.name == "attack"
+                            }?.base_stat ?:0
+
+                            val pokemonRightAttackValue  = pokemonCompareRight.stats.firstOrNull {
+                                it.stat.name == "attack"
+                            }?.base_stat ?:0
+
+                            val pokemonLeftDefenseValue =  pokemonCompareLeft.stats.firstOrNull {
+                                it.stat.name == "defense"
+                            }?.base_stat ?:0
+
+                            val pokemonRightDefenseValue  = pokemonCompareRight.stats.firstOrNull {
+                                it.stat.name == "defense"
+                            }?.base_stat ?:0
+
+                            val pokemonLeftSpArkValue =  pokemonCompareLeft.stats.firstOrNull {
+                                it.stat.name == "special-attack"
+                            }?.base_stat ?:0
+
+                            val pokemonRightSpArkValue  = pokemonCompareRight.stats.firstOrNull {
+                                it.stat.name == "special-attack"
+                            }?.base_stat ?:0
+
+                            val pokemonLeftSpDefValue =  pokemonCompareLeft.stats.firstOrNull {
+                                it.stat.name == "special-defense"
+                            }?.base_stat ?:0
+
+                            val pokemonRightSpDefValue  = pokemonCompareRight.stats.firstOrNull {
+                                it.stat.name == "special-defense"
+                            }?.base_stat ?:0
+
+                            val pokemonLeftSpeedValue =  pokemonCompareLeft.stats.firstOrNull {
+                                it.stat.name == "speed"
+                            }?.base_stat ?:0
+
+                            val pokemonRightSpeedValue  = pokemonCompareRight.stats.firstOrNull {
+                                it.stat.name == "speed"
+                            }?.base_stat ?:0
+
+
 
 
                                     val compare = PokemonCompare(
@@ -119,8 +167,57 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
                                         typeResistanceLeft,
 
                                         typeResistanceRight,
-                                        secondWeakLeft ,
-                                        secondWeakRight
+                                        typeWeakLeft ,
+                                        typeWeakRight,
+                                        if (pokemonLeftHpValue > pokemonRightHpValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightHpValue >= pokemonLeftHpValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonLeftAttackValue > pokemonRightAttackValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightAttackValue >= pokemonLeftAttackValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonLeftDefenseValue > pokemonRightDefenseValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightDefenseValue > pokemonLeftDefenseValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonLeftSpArkValue > pokemonRightSpArkValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightSpArkValue > pokemonLeftSpArkValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonLeftSpDefValue > pokemonRightSpDefValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightSpDefValue > pokemonLeftSpDefValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonLeftSpeedValue > pokemonRightSpeedValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red,
+
+                                        if (pokemonRightSpeedValue > pokemonLeftSpeedValue)
+                                            R.drawable.ic_compare_green else R.drawable.ic_compare_red
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

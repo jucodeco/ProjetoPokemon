@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,29 +12,22 @@
         <include
             android:id="@+id/firstPokemon"
             layout="@layout/fragment_compare_card"
-            android:layout_width="189dp"
-            android:layout_height="768dp"
+            android:layout_width="210dp"
+            android:layout_height="856dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-        android:id="@+id/firstArrow"
-        layout="@layout/fragment_compare_image"
-        android:layout_width="38dp"
-        android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="@id/firstPokemon"
-        app:layout_constraintEnd_toStartOf="@id/secondPokemon"
-        app:layout_constraintStart_toEndOf="@id/firstPokemon"
-        app:layout_constraintTop_toTopOf="@id/firstPokemon" />
+
 
         <include
             android:id="@+id/secondPokemon"
             layout="@layout/fragment_compare_card"
-            android:layout_width="197dp"
-            android:layout_height="768dp"
+            android:layout_width="210dp"
+            android:layout_height="867dp"
             app:layout_constraintBottom_toBottomOf="@id/firstPokemon"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/firstPokemon"
             app:layout_constraintTop_toTopOf="@id/firstPokemon"
             app:layout_constraintVertical_bias="0.0" />
 

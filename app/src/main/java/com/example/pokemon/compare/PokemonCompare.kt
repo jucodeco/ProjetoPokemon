@@ -30,7 +30,27 @@ data class PokemonCompare(
 
 
     val weaknessLeft: List<PokemonCompareType>?,
-    val weaknessRight: List<PokemonCompareType>?
+    val weaknessRight: List<PokemonCompareType>?,
+
+   val hpIconLeft: Int,
+   val hpIconRight: Int,
+
+    val attackIconLeft: Int,
+    val attackIconRight: Int,
+
+    val defenseIconLeft:Int,
+    val defenseIconRight: Int,
+
+    val spArkIconLeft:Int,
+    val spArkIconRight:Int,
+
+    val spDefIconLeft: Int,
+    val spDefIconRight: Int,
+
+    val speedIconLeft: Int,
+    val speedIconRight: Int,
+
+
 
 
     ) : Serializable

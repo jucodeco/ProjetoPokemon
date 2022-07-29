@@ -58,6 +58,7 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
         val nameTypeRight1 = rightCard.findViewById<TextView>(R.id.pokemonType1)
         val nameTypeRight2 = rightCard.findViewById<TextView>(R.id.pokemonType2)
 
+
         viewModel.pokemonCompare.observe(this, Observer {
 
             Glide.with(this).load(it.imageLeft).into(leftImage)
@@ -95,6 +96,7 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             val hpName = hpInclude.findViewById<TextView>(R.id.statName)
             val hpStat = hpInclude.findViewById<TextView>(R.id.stat)
             val hpValue = hpInclude.findViewById<ProgressBar>(R.id.statValue)
+            val imageHpLeft = hpInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
             hpName.text = "hp"
 
@@ -110,10 +112,14 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             hpLeftAnimator.setInterpolator(DecelerateInterpolator())
             hpLeftAnimator.start()
 
+            imageHpLeft.setImageResource(it.hpIconLeft)
+
+
             val attackLeftInclude = findViewById<LinearLayout>(R.id.attackPokemon)
             val attackLeftName = attackLeftInclude.findViewById<TextView>(R.id.statName)
             val attackLeftStat = attackLeftInclude.findViewById<TextView>(R.id.stat)
             val attackLeftValue = attackLeftInclude.findViewById<ProgressBar>(R.id.statValue)
+            val imageAttackLeft = attackLeftInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
             attackLeftName.text = "attack"
 
@@ -128,10 +134,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             attackLeftAnimator.setInterpolator(DecelerateInterpolator())
             attackLeftAnimator.start()
 
+            imageAttackLeft.setImageResource(it.attackIconLeft)
+
             val defenseLeftInclude = findViewById<LinearLayout>(R.id.defensePokemon)
             val defenseLeftName = defenseLeftInclude.findViewById<TextView>(R.id.statName)
             val defenseLeftStat = defenseLeftInclude.findViewById<TextView>(R.id.stat)
             val defenseLeftValue = defenseLeftInclude.findViewById<ProgressBar>(R.id.statValue)
+            val imageDefenseLeft = defenseLeftInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
             defenseLeftName.text = "defense"
 
@@ -147,11 +156,80 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             defenseLeftAnimator.setInterpolator(DecelerateInterpolator())
             defenseLeftAnimator.start()
 
+            imageDefenseLeft.setImageResource(it.defenseIconLeft)
+
+            val spArkLeft = leftCard.findViewById<LinearLayout>(R.id.spArkPokemon)
+            val spArkLeftName = spArkLeft.findViewById<TextView>(R.id.statName)
+            val spArkLeftStat = spArkLeft.findViewById<TextView>(R.id.stat)
+            val spArkLeftValue = spArkLeft.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpArkLeft = spArkLeft.findViewById<ImageView>(R.id.imageprogressbar)
+
+            spArkLeftName.text = "special-attack"
+
+            spArkLeftStat.text = (it.statsLeft.firstOrNull {
+                it.first == "special-attack"
+            }?.second ?: 0).toString()
+
+            val spArkLeftAnimator = ObjectAnimator.ofInt(spArkLeftValue, "progress", it?.statsLeft?.firstOrNull {
+                it.first == "special-attack"
+            }?.second ?: 0)
+
+            spArkLeftAnimator.setStartDelay(1000L)
+            spArkLeftAnimator.setDuration(500)
+            spArkLeftAnimator.setInterpolator(DecelerateInterpolator())
+            spArkLeftAnimator.start()
+
+            imageSpArkLeft.setImageResource(it.spArkIconLeft)
+
+            val spDefLeft = leftCard.findViewById<LinearLayout>(R.id.spDefPokemon)
+            val spDefLeftName = spDefLeft.findViewById<TextView>(R.id.statName)
+            val spDefLeftStat = spDefLeft.findViewById<TextView>(R.id.stat)
+            val spDefLeftValue = spDefLeft.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpDefLeft = spDefLeft.findViewById<ImageView>(R.id.imageprogressbar)
+
+            spDefLeftName.text = "special-defense"
+
+            spDefLeftStat.text = (it.statsLeft.firstOrNull {
+                it.first == "special-defense"
+            }?.second ?: 0).toString()
+
+            val defLeftAnimator = ObjectAnimator.ofInt(spDefLeftValue, "progress", it.statsLeft.firstOrNull {
+                it.first == "special-defense"
+            }?.second ?: 0)
+            defLeftAnimator.setStartDelay(1000L)
+            defLeftAnimator.setDuration(500)
+            defLeftAnimator.setInterpolator(DecelerateInterpolator())
+            defLeftAnimator.start()
+
+            imageSpDefLeft.setImageResource(it.spDefIconLeft)
+
+            val speedLeft = leftCard.findViewById<LinearLayout>(R.id.speedPokemon)
+            val speedLeftName = speedLeft.findViewById<TextView>(R.id.statName)
+            val speedLeftStat = speedLeft.findViewById<TextView>(R.id.stat)
+            val speedLeftValue = speedLeft.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpeedLeft = speedLeft.findViewById<ImageView>(R.id.imageprogressbar)
+
+            speedLeftName.text = "speed"
+            speedLeftStat.text = (it.statsLeft.firstOrNull {
+                it.first == "speed"
+            }?.second ?: 0).toString()
+
+            val speedLeftAnimator = ObjectAnimator.ofInt(speedLeftValue, "progress", it.statsLeft.firstOrNull {
+                it.first == "speed"
+            }?.second ?: 0)
+            speedLeftAnimator.setStartDelay(1000L)
+            speedLeftAnimator.setDuration(500)
+            speedLeftAnimator.setInterpolator(DecelerateInterpolator())
+            speedLeftAnimator.start()
+
+            imageSpeedLeft.setImageResource(it.speedIconLeft)
+
 
             val hpRight = rightCard.findViewById<LinearLayout>(R.id.hpPokemon)
             val hpNameRight = hpRight.findViewById<TextView>(R.id.statName)
             val hpStatRight = hpRight.findViewById<TextView>(R.id.stat)
             val hpValueRight = hpRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageHpRight = hpRight.findViewById<ImageView>(R.id.imageprogressbar)
 
             hpNameRight.text = "hp"
 
@@ -167,12 +245,15 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             hpRightAnimator.setInterpolator(DecelerateInterpolator())
             hpRightAnimator.start()
 
+            imageHpRight.setImageResource(it.hpIconRight)
 
 
             val attackRight = rightCard.findViewById<LinearLayout>(R.id.attackPokemon)
             val attackRightName = attackRight.findViewById<TextView>(R.id.statName)
             val attackRightStat = attackRight.findViewById<TextView>(R.id.stat)
             val attackRightValue = attackRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageAttackRight = attackRight.findViewById<ImageView>(R.id.imageprogressbar)
+
 
             attackRightName.text = "attack"
 
@@ -188,17 +269,19 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             attackRightAnimator.setInterpolator(DecelerateInterpolator())
             attackRightAnimator.start()
 
-
+            imageAttackRight.setImageResource(it.attackIconRight)
             val defenseRight = rightCard.findViewById<LinearLayout>(R.id.defensePokemon)
             val defenseRightName = defenseRight.findViewById<TextView>(R.id.statName)
             val defenseRightStat = defenseRight.findViewById<TextView>(R.id.stat)
             val defenseRightValue = defenseRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageDefenseRight = defenseRight.findViewById<ImageView>(R.id.imageprogressbar)
 
             defenseRightName.text = "defense"
 
             defenseRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "defense"
             }?.second ?: 0).toString()
+
 
             val defenseRightAnimator = ObjectAnimator.ofInt(defenseRightValue, "progress", it?.statsRight?.firstOrNull {
                 it.first == "defense"
@@ -207,6 +290,75 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             defenseRightAnimator.setDuration(500)
             defenseRightAnimator.setInterpolator(DecelerateInterpolator())
             defenseRightAnimator.start()
+
+            imageDefenseRight.setImageResource(it.attackIconRight)
+
+            val spArkRight = rightCard.findViewById<LinearLayout>(R.id.spArkPokemon)
+            val spArkRightName = spArkRight.findViewById<TextView>(R.id.statName)
+            val spArkRightStat = spArkRight.findViewById<TextView>(R.id.stat)
+            val spArkRightValue = spArkRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpArkRight = spArkRight.findViewById<ImageView>(R.id.imageprogressbar)
+
+            spArkRightName.text = "special-attack"
+
+            spArkRightStat.text = (it.statsLeft.firstOrNull {
+                it.first == "special-attack"
+            }?.second ?: 0).toString()
+
+            val spArkRightAnimator = ObjectAnimator.ofInt(spArkRightValue, "progress", it?.statsLeft?.firstOrNull {
+                it.first == "special-attack"
+            }?.second ?: 0)
+
+            spArkRightAnimator.setStartDelay(1000L)
+            spArkRightAnimator.setDuration(500)
+            spArkRightAnimator.setInterpolator(DecelerateInterpolator())
+            spArkRightAnimator.start()
+
+            imageSpArkRight.setImageResource(it.spArkIconRight)
+
+            val spDefRight = rightCard.findViewById<LinearLayout>(R.id.spDefPokemon)
+            val spDefRightName = spDefRight.findViewById<TextView>(R.id.statName)
+            val spDefRightStat = spDefRight.findViewById<TextView>(R.id.stat)
+            val spDefRightValue = spDefRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpDefRight = spDefRight.findViewById<ImageView>(R.id.imageprogressbar)
+
+            spDefRightName.text = "special-defense"
+
+            spDefRightStat.text = (it.statsRight.firstOrNull {
+                it.first == "special-defense"
+            }?.second ?: 0).toString()
+
+            val defRightAnimator = ObjectAnimator.ofInt(spDefRightValue, "progress", it.statsRight.firstOrNull {
+                it.first == "special-defense"
+            }?.second ?: 0)
+            defRightAnimator.setStartDelay(1000L)
+            defRightAnimator.setDuration(500)
+            defRightAnimator.setInterpolator(DecelerateInterpolator())
+            defRightAnimator.start()
+
+            imageSpDefRight.setImageResource(it.spDefIconRight)
+
+
+            val speedRight = rightCard.findViewById<LinearLayout>(R.id.speedPokemon)
+            val speedRightName = speedRight.findViewById<TextView>(R.id.statName)
+            val speedRightStat = speedRight.findViewById<TextView>(R.id.stat)
+            val speedRightValue = speedRight.findViewById<ProgressBar>(R.id.statValue)
+            val imageSpeedRight = speedRight.findViewById<ImageView>(R.id.imageprogressbar)
+
+            speedRightName.text = "speed"
+            speedRightStat.text = (it.statsRight.firstOrNull {
+                it.first == "speed"
+            }?.second ?: 0).toString()
+
+            val speedRightAnimator = ObjectAnimator.ofInt(speedRightValue, "progress", it.statsRight.firstOrNull {
+                it.first == "speed"
+            }?.second ?: 0)
+            speedRightAnimator.setStartDelay(1000L)
+            speedRightAnimator.setDuration(500)
+            speedRightAnimator.setInterpolator(DecelerateInterpolator())
+            speedRightAnimator.start()
+
+            imageSpeedRight.setImageResource(it.speedIconRight)
 
 
             val recyclerViewLeftResistant = leftCard.findViewById<RecyclerView>(R.id.resistantRecyclerCompare)
@@ -228,11 +380,10 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             recyclerViewRightWeak.layoutManager = LinearLayoutManager(this)
 
             val adapterLeftWeak = CompareAdapter(it.weaknessLeft)
-            val adapterRightWeak = CompareAdapter (it.weaknessRight)
+            val adapterRightWeak = CompareAdapter(it.weaknessRight)
 
             recyclerViewLeftWeak.adapter = adapterLeftWeak
             recyclerViewRightWeak.adapter = adapterRightWeak
-
 
 
         })
