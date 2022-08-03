@@ -8,7 +8,7 @@ data class PokemonCompare(
     //Imagem
     val imageLeft: String,
     val imageRight: String,
-   //Nome
+    //Nome
     val nameLeft: String?,
     val nameRight: String?,
 //Tipos
@@ -22,7 +22,7 @@ data class PokemonCompare(
     val typeColorLeft1: Int,
     val typeColorLeft2: Int?,
     // Status
-    val statsLeft: List<Pair<String,Int>>,
+    val statsLeft: List<Pair<String, Int>>,
     val statsRight: List<Pair<String,Int>>,
 
     val resistanceLeft: List<PokemonCompareType>,
@@ -32,8 +32,8 @@ data class PokemonCompare(
     val weaknessLeft: List<PokemonCompareType>?,
     val weaknessRight: List<PokemonCompareType>?,
 
-   val hpIconLeft: Int,
-   val hpIconRight: Int,
+    val hpIconLeft: Int,
+    val hpIconRight: Int,
 
     val attackIconLeft: Int,
     val attackIconRight: Int,
@@ -50,6 +50,21 @@ data class PokemonCompare(
     val speedIconLeft: Int,
     val speedIconRight: Int,
 
+  //Imagem
+
+    val hpLeft:Int,
+    val hpRight:Int,
+    val attackLeft:Int,
+    val attackRight: Int,
+    val defenseLeft:Int,
+    val defenseRight:Int,
+    val spArkLeft:Int,
+    val spArkRight:Int,
+    val spDefLeft:Int,
+    val spDefRight:Int,
+    val speedLeft:Int,
+    val speedRight:Int
+
 
 
 
@@ -59,4 +74,4 @@ data class PokemonCompareType (
     val name: String,
     val color: Int,
 
-)
+    )

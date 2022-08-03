@@ -4,8 +4,10 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
+import com.example.pokemon.api.model.DamageRelations
 import com.example.pokemon.api.model.PokemonApiResult
 import com.example.pokemon.api.model.PokemonTypeSlot
+import com.example.pokemon.api.model.TypeResult
 import com.example.pokemon.api.types.TypeRepository
 import com.example.pokemon.domain.PokemonType
 import com.nhaarman.mockitokotlin2.doReturn
@@ -41,7 +43,7 @@ class ComparePokemonViewModelTest {
                 1,
                 "bulbasaur",
                 listOf(PokemonTypeSlot(1, PokemonType("grass"))),
-                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("url1"))),
+                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("urlleft"))),
                 listOf(PokemonApiResult.PokemonStats(45, 49, PokemonApiResult.PokemonStatName("bulbasaur"))),
                 7, 69
 
@@ -61,21 +63,81 @@ class ComparePokemonViewModelTest {
             )
 
         )
+
+        whenever(typeRepository.typePokemon("grass")).doReturn(
+            TypeResult(
+                DamageRelations(
+                    listOf(PokemonType("water")),
+                    listOf(PokemonType("fire")),
+                    listOf(PokemonType("poison")),
+                    listOf(PokemonType("rock"))
+                )
+            )
+        )
+
+        whenever(typeRepository.typePokemon("poison")).doReturn(
+            TypeResult(
+                DamageRelations(
+                    listOf(PokemonType("bug")),
+                    listOf(PokemonType("grass")),
+                    listOf(PokemonType("fire")),
+                    listOf(PokemonType("rock"))
+                )
+            )
+        )
         comparePokemonViewModel.comparePokemon(1, 2)
         verify(observer).onChanged(
             PokemonCompare(
-                "url1",
+                "urlleft",
                 "urlright",
-                "bulbasaur",
-                "ivysaur",
-                "",
+                "Bulbasaur",
+                "Ivysaur",
+                "poison",
                 null,
-                "",
+                "grass",
+                null,
+                R.color.colorpoison,
                 null,
                 R.color.colorgrass,
-                R.color.colorpoison,
-                R.color.colorgrass,
-                R.color.colorpoison,
+                null,
+                listOf(Pair("bulbasaur", 45)),
+                listOf(Pair("ivysaur", 60)),
+                listOf(PokemonCompareType("poison", R.color.colorpoison)),
+                emptyList(),
+                emptyList(),
+                emptyList(),
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                 R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_hp_red,
+                R.drawable.ic_hp_red,
+                R.drawable.ic_attack,
+                R.drawable.ic_attack,
+                R.drawable.ic_defense,
+                R.drawable.ic_defense,
+                R.drawable.ic_spattack,
+                R.drawable.ic_spattack,
+                R.drawable.ic_spdef,
+                R.drawable.ic_spdef,
+                R.drawable.ic_speed,
+                R.drawable.ic_speed
+
+
+
+
+
+
+
+
 
 
 
@@ -85,49 +147,6 @@ class ComparePokemonViewModelTest {
         )
     }
 
-    @Test
-    fun `given my pokemon repository show on the screen the image of the two pokemons 2`() {
-        whenever(pokemonRepository.getPokemon(3)).doReturn(
-            PokemonApiResult(
-                3,
-                "bulbasaur",
-                listOf(PokemonTypeSlot(3, PokemonType("grass"))),
-                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("url1"))),
-                listOf(PokemonApiResult.PokemonStats(45, 49, PokemonApiResult.PokemonStatName("bulbasaur"))),
-                7, 69
-            )
-
-        )
-
-        whenever(pokemonRepository.getPokemon(4)).doReturn(
-            PokemonApiResult(
-                4,
-                "ivysaur",
-                listOf(PokemonTypeSlot(4, PokemonType("poison"))),
-                PokemonApiResult.Sprites(PokemonApiResult.OtherSprites(PokemonApiResult.OfficialArtwork("url2"))),
-                listOf(PokemonApiResult.PokemonStats(60, 62, PokemonApiResult.PokemonStatName("ivysaur"))),
-                10, 130
-            )
-
-        )
-        comparePokemonViewModel.comparePokemon(3, 4)
-        verify(observer).onChanged(
-            PokemonCompare(
-                "url1",
-                "url2",
-                "bulbasaur",
-                "ivysaur",
-                "",
-                null,
-                "",
-                null,
-
-
-            )
-
-
-        )
-    }
 
 
 

@@ -4,6 +4,7 @@ package com.example.pokemon.details
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pokemon.ColorType
+import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.types.TypeRepository
 
@@ -53,7 +54,15 @@ class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository, 
                     pokemon.height,
                     pokemon.weight,
                     ColorType.getcolortype(pokemon.types[0].type.name),
-                weaknessTypeList, typeResistance
+                weaknessTypeList, typeResistance,
+                    R.drawable.ic_hp_red,
+                    R.drawable.ic_attack,
+                    R.drawable.ic_defense,
+                    R.drawable.ic_spattack,
+                    R.drawable.ic_spdef,
+                    R.drawable.ic_speed
+
+
 
                 )
                 pokemonDetails.postValue(details)

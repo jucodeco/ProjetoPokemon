@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -64,6 +65,7 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             Glide.with(this).load(it.imageLeft).into(leftImage)
             Glide.with(this).load(it.imageRight).into(rightImage)
 
+
             namePokemonLeft.text = it.nameLeft
             namePokemonRight.text = it.nameRight
 
@@ -92,13 +94,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
                 nameTypeRight2.visibility = View.GONE
             }
 
-            val hpInclude = findViewById<LinearLayout>(R.id.hpPokemon)
-            val hpName = hpInclude.findViewById<TextView>(R.id.statName)
+            val hpInclude = findViewById<ConstraintLayout>(R.id.hpPokemon)
+            val hpName = hpInclude.findViewById<ImageView>(R.id.statName)
             val hpStat = hpInclude.findViewById<TextView>(R.id.stat)
             val hpValue = hpInclude.findViewById<ProgressBar>(R.id.statValue)
             val imageHpLeft = hpInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
-            hpName.text = "hp"
+            hpName.setImageResource(it.hpLeft)
 
             hpStat.text = (it?.statsLeft?.firstOrNull {
                 it.first == "hp"
@@ -115,13 +117,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             imageHpLeft.setImageResource(it.hpIconLeft)
 
 
-            val attackLeftInclude = findViewById<LinearLayout>(R.id.attackPokemon)
-            val attackLeftName = attackLeftInclude.findViewById<TextView>(R.id.statName)
+            val attackLeftInclude = findViewById<ConstraintLayout>(R.id.attackPokemon)
+            val attackLeftName = attackLeftInclude.findViewById<ImageView>(R.id.statName)
             val attackLeftStat = attackLeftInclude.findViewById<TextView>(R.id.stat)
             val attackLeftValue = attackLeftInclude.findViewById<ProgressBar>(R.id.statValue)
             val imageAttackLeft = attackLeftInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
-            attackLeftName.text = "attack"
+            attackLeftName.setImageResource(it.attackLeft)
 
             attackLeftStat.text = (it.statsLeft.firstOrNull {
                 it.first == "attack"
@@ -136,13 +138,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageAttackLeft.setImageResource(it.attackIconLeft)
 
-            val defenseLeftInclude = findViewById<LinearLayout>(R.id.defensePokemon)
-            val defenseLeftName = defenseLeftInclude.findViewById<TextView>(R.id.statName)
+            val defenseLeftInclude = findViewById<ConstraintLayout>(R.id.defensePokemon)
+            val defenseLeftName = defenseLeftInclude.findViewById<ImageView>(R.id.statName)
             val defenseLeftStat = defenseLeftInclude.findViewById<TextView>(R.id.stat)
             val defenseLeftValue = defenseLeftInclude.findViewById<ProgressBar>(R.id.statValue)
             val imageDefenseLeft = defenseLeftInclude.findViewById<ImageView>(R.id.imageprogressbar)
 
-            defenseLeftName.text = "defense"
+            defenseLeftName.setImageResource(it.defenseLeft)
 
             defenseLeftStat.text = (it.statsLeft.firstOrNull {
                 it.first == "defense"
@@ -158,13 +160,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageDefenseLeft.setImageResource(it.defenseIconLeft)
 
-            val spArkLeft = leftCard.findViewById<LinearLayout>(R.id.spArkPokemon)
-            val spArkLeftName = spArkLeft.findViewById<TextView>(R.id.statName)
+            val spArkLeft = leftCard.findViewById<ConstraintLayout>(R.id.spArkPokemon)
+            val spArkLeftName = spArkLeft.findViewById<ImageView>(R.id.statName)
             val spArkLeftStat = spArkLeft.findViewById<TextView>(R.id.stat)
             val spArkLeftValue = spArkLeft.findViewById<ProgressBar>(R.id.statValue)
             val imageSpArkLeft = spArkLeft.findViewById<ImageView>(R.id.imageprogressbar)
 
-            spArkLeftName.text = "special-attack"
+            spArkLeftName.setImageResource(it.spArkLeft)
 
             spArkLeftStat.text = (it.statsLeft.firstOrNull {
                 it.first == "special-attack"
@@ -181,13 +183,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageSpArkLeft.setImageResource(it.spArkIconLeft)
 
-            val spDefLeft = leftCard.findViewById<LinearLayout>(R.id.spDefPokemon)
-            val spDefLeftName = spDefLeft.findViewById<TextView>(R.id.statName)
+            val spDefLeft = leftCard.findViewById<ConstraintLayout>(R.id.spDefPokemon)
+            val spDefLeftName = spDefLeft.findViewById<ImageView>(R.id.statName)
             val spDefLeftStat = spDefLeft.findViewById<TextView>(R.id.stat)
             val spDefLeftValue = spDefLeft.findViewById<ProgressBar>(R.id.statValue)
             val imageSpDefLeft = spDefLeft.findViewById<ImageView>(R.id.imageprogressbar)
 
-            spDefLeftName.text = "special-defense"
+            spDefLeftName.setImageResource(it.spDefLeft)
 
             spDefLeftStat.text = (it.statsLeft.firstOrNull {
                 it.first == "special-defense"
@@ -203,13 +205,14 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageSpDefLeft.setImageResource(it.spDefIconLeft)
 
-            val speedLeft = leftCard.findViewById<LinearLayout>(R.id.speedPokemon)
-            val speedLeftName = speedLeft.findViewById<TextView>(R.id.statName)
+            val speedLeft = leftCard.findViewById<ConstraintLayout>(R.id.speedPokemon)
+            val speedLeftName = speedLeft.findViewById<ImageView>(R.id.statName)
             val speedLeftStat = speedLeft.findViewById<TextView>(R.id.stat)
             val speedLeftValue = speedLeft.findViewById<ProgressBar>(R.id.statValue)
             val imageSpeedLeft = speedLeft.findViewById<ImageView>(R.id.imageprogressbar)
 
-            speedLeftName.text = "speed"
+            speedLeftName.setImageResource(it.speedLeft)
+
             speedLeftStat.text = (it.statsLeft.firstOrNull {
                 it.first == "speed"
             }?.second ?: 0).toString()
@@ -225,13 +228,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             imageSpeedLeft.setImageResource(it.speedIconLeft)
 
 
-            val hpRight = rightCard.findViewById<LinearLayout>(R.id.hpPokemon)
-            val hpNameRight = hpRight.findViewById<TextView>(R.id.statName)
+            val hpRight = rightCard.findViewById<ConstraintLayout>(R.id.hpPokemon)
+            val hpNameRight = hpRight.findViewById<ImageView>(R.id.statName)
             val hpStatRight = hpRight.findViewById<TextView>(R.id.stat)
             val hpValueRight = hpRight.findViewById<ProgressBar>(R.id.statValue)
             val imageHpRight = hpRight.findViewById<ImageView>(R.id.imageprogressbar)
 
-            hpNameRight.text = "hp"
+            hpNameRight.setImageResource(it.hpRight)
 
             hpStatRight.text = (it?.statsRight?.firstOrNull {
                 it.first == "hp"
@@ -248,14 +251,14 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             imageHpRight.setImageResource(it.hpIconRight)
 
 
-            val attackRight = rightCard.findViewById<LinearLayout>(R.id.attackPokemon)
-            val attackRightName = attackRight.findViewById<TextView>(R.id.statName)
+            val attackRight = rightCard.findViewById<ConstraintLayout>(R.id.attackPokemon)
+            val attackRightName = attackRight.findViewById<ImageView>(R.id.statName)
             val attackRightStat = attackRight.findViewById<TextView>(R.id.stat)
             val attackRightValue = attackRight.findViewById<ProgressBar>(R.id.statValue)
             val imageAttackRight = attackRight.findViewById<ImageView>(R.id.imageprogressbar)
 
 
-            attackRightName.text = "attack"
+            attackRightName.setImageResource(it.attackRight)
 
             attackRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "attack"
@@ -270,13 +273,14 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             attackRightAnimator.start()
 
             imageAttackRight.setImageResource(it.attackIconRight)
-            val defenseRight = rightCard.findViewById<LinearLayout>(R.id.defensePokemon)
-            val defenseRightName = defenseRight.findViewById<TextView>(R.id.statName)
+
+            val defenseRight = rightCard.findViewById<ConstraintLayout>(R.id.defensePokemon)
+            val defenseRightName = defenseRight.findViewById<ImageView>(R.id.statName)
             val defenseRightStat = defenseRight.findViewById<TextView>(R.id.stat)
             val defenseRightValue = defenseRight.findViewById<ProgressBar>(R.id.statValue)
             val imageDefenseRight = defenseRight.findViewById<ImageView>(R.id.imageprogressbar)
 
-            defenseRightName.text = "defense"
+            defenseRightName.setImageResource(it.defenseRight)
 
             defenseRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "defense"
@@ -293,13 +297,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageDefenseRight.setImageResource(it.attackIconRight)
 
-            val spArkRight = rightCard.findViewById<LinearLayout>(R.id.spArkPokemon)
-            val spArkRightName = spArkRight.findViewById<TextView>(R.id.statName)
+            val spArkRight = rightCard.findViewById<ConstraintLayout>(R.id.spArkPokemon)
+            val spArkRightName = spArkRight.findViewById<ImageView>(R.id.statName)
             val spArkRightStat = spArkRight.findViewById<TextView>(R.id.stat)
             val spArkRightValue = spArkRight.findViewById<ProgressBar>(R.id.statValue)
             val imageSpArkRight = spArkRight.findViewById<ImageView>(R.id.imageprogressbar)
 
-            spArkRightName.text = "special-attack"
+            spArkRightName.setImageResource(it.spArkRight)
 
             spArkRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "special-attack"
@@ -316,13 +320,13 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
             imageSpArkRight.setImageResource(it.spArkIconRight)
 
-            val spDefRight = rightCard.findViewById<LinearLayout>(R.id.spDefPokemon)
-            val spDefRightName = spDefRight.findViewById<TextView>(R.id.statName)
+            val spDefRight = rightCard.findViewById<ConstraintLayout>(R.id.spDefPokemon)
+            val spDefRightName = spDefRight.findViewById<ImageView>(R.id.statName)
             val spDefRightStat = spDefRight.findViewById<TextView>(R.id.stat)
             val spDefRightValue = spDefRight.findViewById<ProgressBar>(R.id.statValue)
             val imageSpDefRight = spDefRight.findViewById<ImageView>(R.id.imageprogressbar)
 
-            spDefRightName.text = "special-defense"
+            spDefRightName.setImageResource(it.spDefRight)
 
             spDefRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "special-defense"
@@ -339,13 +343,14 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
             imageSpDefRight.setImageResource(it.spDefIconRight)
 
 
-            val speedRight = rightCard.findViewById<LinearLayout>(R.id.speedPokemon)
-            val speedRightName = speedRight.findViewById<TextView>(R.id.statName)
+            val speedRight = rightCard.findViewById<ConstraintLayout>(R.id.speedPokemon)
+            val speedRightName = speedRight.findViewById<ImageView>(R.id.statName)
             val speedRightStat = speedRight.findViewById<TextView>(R.id.stat)
             val speedRightValue = speedRight.findViewById<ProgressBar>(R.id.statValue)
             val imageSpeedRight = speedRight.findViewById<ImageView>(R.id.imageprogressbar)
 
-            speedRightName.text = "speed"
+            speedRightName.setImageResource(it.speedRight)
+
             speedRightStat.text = (it.statsRight.firstOrNull {
                 it.first == "speed"
             }?.second ?: 0).toString()

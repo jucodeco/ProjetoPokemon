@@ -11,7 +11,20 @@ data class PokemonDetails(
     val weight: Int,
     val backgroudColor: Int,
     val weakness: List<PokemonDetailsType>,
-    val resistance: List<PokemonDetailsType>
+    val resistance: List<PokemonDetailsType>,
+
+    val hp:Int,
+
+    val attack:Int,
+
+    val defense:Int,
+
+    val spArk:Int,
+
+    val spDef:Int,
+
+    val speed:Int,
+
 
 
 ) : Serializable

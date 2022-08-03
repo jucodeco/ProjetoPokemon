@@ -1,7 +1,6 @@
 package com.example.pokemon.lista
 
 
-import android.widget.CheckBox
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorite
 import com.example.pokemon.lista.usecase.ViewPokemonList
@@ -18,7 +17,6 @@ import com.example.pokemon.domain.PokemonType
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Before
-import org.junit.runner.manipulation.Ordering
 
 
 class PokemonViewModelTest {

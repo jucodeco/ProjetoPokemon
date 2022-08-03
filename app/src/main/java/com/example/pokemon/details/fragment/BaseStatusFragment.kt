@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -32,11 +33,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         super.onViewCreated(view, savedInstanceState)
 
         val hpInclude = view.findViewById<LinearLayout>(R.id.hp)
-        val hpName = hpInclude.findViewById<TextView>(R.id.statName)
+        val hpName = hpInclude.findViewById<ImageView>(R.id.statName)
         val hpStat = hpInclude.findViewById<TextView>(R.id.stat)
         val hpValue = hpInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        hpName.text = "hp"
+        hpName.setImageResource(detail?.hp?:0)
 
         hpStat.text = (detail?.stats?.firstOrNull {
             it.first == "hp"
@@ -51,11 +52,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         hpAnimator.start()
 
         val attackInclude = view.findViewById<LinearLayout>(R.id.attack)
-        val attackName = attackInclude.findViewById<TextView>(R.id.statName)
+        val attackName = attackInclude.findViewById<ImageView>(R.id.statName)
         val attackStat = attackInclude.findViewById<TextView>(R.id.stat)
         val attackValue = attackInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        attackName.text = "attack"
+        attackName.setImageResource(detail?.attack?:0)
 
         attackStat.text = (detail?.stats?.firstOrNull {
             it.first == "attack"
@@ -71,11 +72,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         attackAnimator.start()
 
         val defenseInclude = view.findViewById<LinearLayout>(R.id.defense)
-        val defenseName = defenseInclude.findViewById<TextView>(R.id.statName)
+        val defenseName = defenseInclude.findViewById<ImageView>(R.id.statName)
         val defenseStat = defenseInclude.findViewById<TextView>(R.id.stat)
         val defenseValue = defenseInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        defenseName.text = "defense"
+        defenseName.setImageResource(detail?.defense?:0)
 
         defenseStat.text = (detail?.stats?.firstOrNull {
             it.first == "defense"
@@ -90,11 +91,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         defenseAnimator.start()
 
         val spArkInclude = view.findViewById<LinearLayout>(R.id.spArk)
-        val spArkName = spArkInclude.findViewById<TextView>(R.id.statName)
+        val spArkName = spArkInclude.findViewById<ImageView>(R.id.statName)
         val spArkStat = spArkInclude.findViewById<TextView>(R.id.stat)
         val spArkValue = spArkInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        spArkName.text = "special-attack"
+        spArkName.setImageResource(detail?.spArk?:0)
 
         spArkStat.text = (detail?.stats?.firstOrNull {
             it.first == "special-attack"
@@ -109,11 +110,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         spArkAnimator.start()
 
         val spDefInclude = view.findViewById<LinearLayout>(R.id.spDef)
-        val spDefName = spDefInclude.findViewById<TextView>(R.id.statName)
+        val spDefName = spDefInclude.findViewById<ImageView>(R.id.statName)
         val spDefStat = spDefInclude.findViewById<TextView>(R.id.stat)
         val spDefValue = spDefInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        spDefName.text = "special-defense"
+        spDefName.setImageResource(detail?.spDef?:0)
 
         spDefStat.text = (detail?.stats?.firstOrNull {
             it.first == "special-defense"
@@ -128,11 +129,11 @@ class BaseStatusFragment : Fragment(R.layout.fragment_base_status) {
         defAnimator.start()
 
         val speedInclude = view.findViewById<LinearLayout>(R.id.speed)
-        val speedName = speedInclude.findViewById<TextView>(R.id.statName)
+        val speedName = speedInclude.findViewById<ImageView>(R.id.statName)
         val speedStat = speedInclude.findViewById<TextView>(R.id.stat)
         val speedValue = speedInclude.findViewById<ProgressBar>(R.id.statValue)
 
-        speedName.text = "speed"
+        speedName.setImageResource(detail?.speed?:0)
         speedStat.text = (detail?.stats?.firstOrNull {
             it.first == "speed"
         }?.second ?: 0).toString()

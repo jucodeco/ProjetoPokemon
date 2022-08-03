@@ -69,7 +69,14 @@ class DetailsPokemonViewModelTest {
                 87,
                 R.color.colorfire,
                 listOf(PokemonDetailsType("water", R.color.colorwater)),
-                listOf(PokemonDetailsType("poison", R.color.colorpoison))
+                listOf(PokemonDetailsType("poison", R.color.colorpoison)),
+                R.drawable.ic_hp_red,
+                R.drawable.ic_attack,
+                R.drawable.ic_defense,
+                R.drawable.ic_spattack,
+                R.drawable.ic_spdef,
+                R.drawable.ic_speed
+
             )
         )
 
@@ -126,12 +133,13 @@ class DetailsPokemonViewModelTest {
                     PokemonDetailsType("electric", R.color.colorelectric)
                 ),
                 listOf(
-                    PokemonDetailsType("poison", R.color.colorpoison)
-
-
-
-
-                )
+                    PokemonDetailsType("poison", R.color.colorpoison)),
+                R.drawable.ic_hp_red,
+                R.drawable.ic_attack,
+                R.drawable.ic_defense,
+                R.drawable.ic_spattack,
+                R.drawable.ic_spdef,
+                R.drawable.ic_speed
             )
         )
 
