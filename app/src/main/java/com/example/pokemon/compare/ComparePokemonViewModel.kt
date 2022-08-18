@@ -2,10 +2,13 @@ package com.example.pokemon.compare
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.pokemon.ColorType
 import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.types.TypeRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.lang.IndexOutOfBoundsException
 
 
@@ -13,7 +16,7 @@ class ComparePokemonViewModel(private val pokemonRepository: PokemonRepository, 
 
     var pokemonCompare = MutableLiveData<PokemonCompare>()
 
-    fun comparePokemon(num: Int, num2: Int) {
+    fun comparePokemon(num: Int, num2: Int) = viewModelScope.launch(Dispatchers.IO) {
 
         val pokemonCompareLeft = pokemonRepository.getPokemon(num)
         val pokemonCompareRight = pokemonRepository.getPokemon(num2)

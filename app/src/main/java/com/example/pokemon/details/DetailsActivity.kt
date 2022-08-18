@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
+import com.example.pokemon.api.PokemonRepositoryImpl
+import com.example.pokemon.api.types.TypeRepositoryImpl
 import com.example.pokemon.databinding.FragmentPokemonDetailsBinding
 import com.example.pokemon.details.fragment.AboutFragment
 import com.example.pokemon.details.fragment.BaseStatusFragment
@@ -41,8 +43,11 @@ class DetailsActivity() : AppCompatActivity() {
         val pokemonId = findViewById<TextView>(R.id.pokemonId)
         val pokemonImg = findViewById<ImageView>(R.id.pokemonImg)
         val rootView = findViewById<ConstraintLayout>(R.id.rootView)
-        viewModel = ViewModelProvider(this, PokemonDetailsViewModelFactory(this))
-            .get(DetailsPokemonViewModel::class.java)
+        viewModel = DetailsPokemonViewModel(
+            PokemonRepositoryImpl(cacheDir),
+            TypeRepositoryImpl((cacheDir))
+
+        )
 
         viewModel.pokemonDetails.observe(this, Observer {
             pokemonName.text = it.name
@@ -52,10 +57,9 @@ class DetailsActivity() : AppCompatActivity() {
             adapter.addDetail(it)
 
         })
-        Thread(Runnable {
+
             viewModel.loadPokemonDetails(number )
-        })
-            .start()
+
     }
 
     companion object {

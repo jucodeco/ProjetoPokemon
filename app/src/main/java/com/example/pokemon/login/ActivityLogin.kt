@@ -19,8 +19,7 @@ class ActivityLogin : AppCompatActivity() {
     private lateinit var btentrar: AppCompatButton
     private lateinit var controllerLogin: LoginController
 
-    override
-    fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         controllerLogin = LoginController(UserRepositoryImpl(getSharedPreferences("Login SharedPreferences", MODE_PRIVATE)))
         setContentView(R.layout.activity_login)

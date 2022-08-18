@@ -2,30 +2,23 @@ package com.example.pokemon.compare
 
 
 import android.animation.ObjectAnimator
-import android.content.ContentProvider
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokemon.R
+import com.example.pokemon.api.PokemonRepositoryImpl
+import com.example.pokemon.api.types.TypeRepositoryImpl
 import com.example.pokemon.databinding.FragmentCompareBinding
-import com.example.pokemon.details.DetailAdapter
-import com.example.pokemon.lista.PokemonViewModel
-import com.example.pokemon.lista.PokemonViewModelFactory
 
 
 class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
@@ -42,8 +35,10 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
         val numLeft = intent.getIntExtra(COMPARE_POKEMON_LEFT, 0)
         val numRight = intent.getIntExtra(COMPARE_POKEMON_RIGHT, 1)
-        viewModel = ViewModelProvider(this, PokemonCompareViewModelFactory(this))
-            .get(ComparePokemonViewModel::class.java)
+        viewModel = ComparePokemonViewModel(
+            PokemonRepositoryImpl(cacheDir),
+            TypeRepositoryImpl(cacheDir)
+        )
 
         val leftCard = findViewById<CardView>(R.id.firstPokemon)
         val leftImage = leftCard.findViewById<ImageView>(R.id.pokeball)
@@ -393,10 +388,9 @@ class CompareActivity : AppCompatActivity(R.layout.fragment_compare) {
 
         })
 
-        Thread(Runnable {
+
             viewModel.comparePokemon(numLeft, numRight)
-        })
-            .start()
+
 
     }
 

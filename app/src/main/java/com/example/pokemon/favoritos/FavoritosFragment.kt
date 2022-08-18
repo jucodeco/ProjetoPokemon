@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
+import com.example.pokemon.api.PokemonRepositoryImpl
+import com.example.pokemon.favoritos.room.FavoriteRepositoryImpl
+import com.example.pokemon.favoritos.usecase.ViewListFavoritePokemonsImpl
 import com.example.pokemon.lista.PokemonAdapter
 
 
@@ -24,8 +27,14 @@ class FavoritosFragment : Fragment(R.layout.fragment_favorite) {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvfavorite)
         val progressfav = view.findViewById<ProgressBar>(R.id.progressfav)
-        viewModel = ViewModelProvider(this, FavoritePokemonFactory(view.context))
-            .get(FavoritePokemonViewModel::class.java)
+        context?.let {
+        viewModel = FavoritePokemonViewModel(
+            ViewListFavoritePokemonsImpl(
+                FavoriteRepositoryImpl(it),
+                PokemonRepositoryImpl(it.cacheDir)
+            )
+        )
+        }
         val adapter = PokemonAdapter( null,null,null,null)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = adapter
@@ -37,13 +46,11 @@ class FavoritosFragment : Fragment(R.layout.fragment_favorite) {
             progressfav.visibility = View.GONE
 
         })
-        Thread(Runnable {
+
             viewModel.loadPokemons()
 
 
-        }).start()
-            }
-
+        }
         }
 
 

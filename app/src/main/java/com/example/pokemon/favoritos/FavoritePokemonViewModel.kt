@@ -2,13 +2,16 @@ package com.example.pokemon.favoritos
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.pokemon.ColorType
 import com.example.pokemon.favoritos.usecase.ViewListFavoritePokemons
 import com.example.pokemon.lista.PokemonItem
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.lang.IndexOutOfBoundsException
 
 class FavoritePokemonViewModel(private val usecase: ViewListFavoritePokemons) : ViewModel() {
-    fun loadPokemons() {
+    fun loadPokemons() = viewModelScope.launch(Dispatchers.IO) {
         pokemons.postValue(usecase.get().map {
             PokemonItem(
                 it.imageUrl,

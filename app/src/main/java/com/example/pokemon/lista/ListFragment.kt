@@ -10,12 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemon.R
+import com.example.pokemon.api.PokemonRepositoryImpl
 import com.example.pokemon.compare.CompareActivity
 import com.example.pokemon.compare.CompareActivity.Companion.COMPARE_POKEMON_LEFT
 import com.example.pokemon.compare.CompareActivity.Companion.COMPARE_POKEMON_RIGHT
 
 import com.example.pokemon.details.DetailsActivity
 import com.example.pokemon.details.DetailsActivity.Companion.EXTRA_POKEMON_NUMBER
+import com.example.pokemon.favoritos.room.FavoriteRepositoryImpl
+import com.example.pokemon.lista.usecase.ViewPokemonList
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListFragment() : Fragment(R.layout.fragment_list) {
@@ -29,9 +32,12 @@ class ListFragment() : Fragment(R.layout.fragment_list) {
         val progress = view.findViewById<ProgressBar>(R.id.progress_bar_catalog_fragment)
 
         val fab = view.findViewById<FloatingActionButton>(R.id.floating_action_button_poke)
-
-        viewModel = ViewModelProvider(this, PokemonViewModelFactory(view.context))
-            .get(PokemonViewModel::class.java)
+        context?.let {
+        viewModel = PokemonViewModel(
+            FavoriteRepositoryImpl(it),
+            ViewPokemonList(PokemonRepositoryImpl(it.cacheDir))
+        )
+        }
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         val adapter = PokemonAdapter(onAddFavoriteListener, onClickRemoveFavorite, onItemClick = ::onPokemonClick, onComparePokemon = :: onComparePokemon)
         recyclerView.adapter = adapter
@@ -46,13 +52,7 @@ class ListFragment() : Fragment(R.layout.fragment_list) {
         fab.setOnClickListener {
             adapter.toggleCheckbox ()
         }
-
-        Thread(Runnable {
-            viewModel.loadPokemons()
-        })
-            .start()
-
-
+        viewModel.loadPokemons()
 
     }
 
@@ -60,10 +60,9 @@ class ListFragment() : Fragment(R.layout.fragment_list) {
         object : OnClickAddFavorite {
             override fun onAddFavorite(pokemonItem: PokemonItem) {
                 viewModel.addFavorite(pokemonItem.id)
-                Thread(Runnable {
-                    viewModel.loadPokemons()
-                })
-                    .start()
+
+                viewModel.loadPokemons()
+
             }
 
         }
@@ -74,11 +73,8 @@ class ListFragment() : Fragment(R.layout.fragment_list) {
             override fun onClickRemoveFavorite(pokemonItem: PokemonItem) {
                 viewModel.removeFavorite(pokemonItem.id)
 
+                viewModel.loadPokemons()
 
-                Thread(Runnable {
-                    viewModel.loadPokemons()
-                })
-                    .start()
             }
 
         }

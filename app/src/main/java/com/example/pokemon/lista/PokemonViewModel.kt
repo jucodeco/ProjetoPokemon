@@ -2,10 +2,13 @@ package com.example.pokemon.lista
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.pokemon.ColorType
 import com.example.pokemon.favoritos.room.FavoriteRepository
 import com.example.pokemon.favoritos.room.PokemonFavorite
 import com.example.pokemon.lista.usecase.ViewPokemonList
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.lang.IndexOutOfBoundsException
 
 
@@ -16,9 +19,10 @@ class PokemonViewModel(
 
     var pokemons = MutableLiveData<List<PokemonItem?>>()
 
-    fun loadPokemons() {
+    fun loadPokemons() = viewModelScope.launch(Dispatchers.IO){
 
         val favoritePokemons = favoriteRepository.getAll()
+
 
         pokemons.postValue(usecase.getPokemons()?.map {
             PokemonItem(
@@ -43,8 +47,9 @@ class PokemonViewModel(
 
                 favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null
             )
-        }
-        )
+        })
+
+
     }
 
     fun addFavorite(id: Int) {

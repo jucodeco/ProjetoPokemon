@@ -1,49 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pokemon">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pokemon">
         <activity
-            android:name="com.example.pokemon.login.ActivityLogin"
+            android:name=".login.LoginCompose"
+            android:exported="false"
+            android:label="@string/title_activity_login_compose"
+            android:theme="@style/Theme.Pokemon" />
+        <activity
+            android:name=".login.ActivityLoginCompose"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-
-            android:name="com.example.pokemon.main.MainActivity"
-            android:exported="false"
-
-            >
-
-        </activity>
+            android:name=".main.MainActivity"
+            android:exported="false"></activity>
         <activity
-
-            android:name="com.example.pokemon.details.DetailsActivity"
-            android:exported="false"
-
-            >
-
-        </activity>
+            android:name=".details.DetailsActivity"
+            android:exported="false"></activity>
         <activity
-
-            android:name="com.example.pokemon.compare.CompareActivity"
-            android:exported="false"
-
-            >
-
-        </activity>
+            android:name=".compare.CompareActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

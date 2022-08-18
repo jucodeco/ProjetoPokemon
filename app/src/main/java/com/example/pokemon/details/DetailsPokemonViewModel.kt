@@ -3,10 +3,13 @@ package com.example.pokemon.details
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.pokemon.ColorType
 import com.example.pokemon.R
 import com.example.pokemon.api.PokemonRepository
 import com.example.pokemon.api.types.TypeRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository, private val typeRepository: TypeRepository) : ViewModel() {
@@ -14,7 +17,7 @@ class DetailsPokemonViewModel(private val pokemonRepository: PokemonRepository, 
     var pokemonDetails = MutableLiveData<PokemonDetails>()
 
 
-    fun loadPokemonDetails(number: Int) {
+    fun loadPokemonDetails(number: Int) = viewModelScope.launch(Dispatchers.IO) {
 
         val pokemon = pokemonRepository.getPokemon(number)
 
