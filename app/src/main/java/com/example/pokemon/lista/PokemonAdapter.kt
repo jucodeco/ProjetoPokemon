@@ -11,7 +11,8 @@ import com.example.pokemon.R
 
 class PokemonAdapter(
 
-    private val addFavoriteListener: OnClickAddFavorite?, private val removeFavoriteListener: OnClickRemoveFavorite?,
+    private val addFavoriteListener: OnClickAddFavorite?,
+    private val removeFavoriteListener: OnClickRemoveFavorite?,
     private val onItemClick: ((PokemonItem) -> Unit)?,
     private val onComparePokemon: ((Int, Int) -> Unit)?
 

@@ -1,5 +1,9 @@
 package com.example.pokemon.lista
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,9 +21,9 @@ class PokemonViewModel(
     private val usecase: ViewPokemonList
 ) : ViewModel() {
 
-    var pokemons = MutableLiveData<List<PokemonItem?>>()
+    var pokemons = MutableLiveData<List<PokemonItem>>()
 
-    fun loadPokemons() = viewModelScope.launch(Dispatchers.IO){
+    fun loadPokemons() = viewModelScope.launch(Dispatchers.IO) {
 
         val favoritePokemons = favoriteRepository.getAll()
 
@@ -45,7 +49,8 @@ class PokemonViewModel(
                 },
                 it.number,
 
-                favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null
+                favoritePokemons.firstOrNull { pokemon -> pokemon.number == it.number } != null,
+
             )
         })
 
@@ -63,7 +68,15 @@ class PokemonViewModel(
     }
 
 
-}
+    fun calcDominantColor(drawble: Drawable, onFinish: (Color) -> Unit) {
+        val bmp = (drawble as BitmapDrawable).bitmap.copy(Bitmap.Config.ARGB_8888, true)
+
+
+
+        }
+    }
+
+
 
 
 

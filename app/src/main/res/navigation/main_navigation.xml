@@ -19,7 +19,7 @@
         android:label="favoritosfragment" />
     <fragment
         android:id="@+id/listafragment"
-        android:name="com.example.pokemon.lista.ListFragment"
+        android:name="com.example.pokemon.lista.ListFragmentCompose"
         tools:layout="@layout/fragment_list"
         android:label="Listafragment" />
 </navigation>

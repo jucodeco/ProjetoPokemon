@@ -7,7 +7,7 @@
     android:paddingBottom="?actionBarSize"
     android:background="@color/poke_gray_mid_translucent"
     android:visibility="visible"
-    tools:context=".lista.ListFragment"
+    tools:context=".lista.ListFragmentCompose"
 
     >
 

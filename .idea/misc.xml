@@ -8,6 +8,33 @@
         <entry key="../../../../layout/compose-model-1660762566355.xml" value="0.165" />
         <entry key="../../../../layout/compose-model-1660827804071.xml" value="0.18703703703703703" />
         <entry key="../../../../layout/compose-model-1660834764106.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1660850769247.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1660851672988.xml" value="1.0" />
+        <entry key="../../../../layout/compose-model-1660916765866.xml" value="0.1935185185185185" />
+        <entry key="../../../../layout/compose-model-1660917460829.xml" value="0.25" />
+        <entry key="../../../../layout/compose-model-1660917828688.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1660918400066.xml" value="0.165" />
+        <entry key="../../../../layout/compose-model-1660922787431.xml" value="0.125" />
+        <entry key="../../../../layout/compose-model-1661177459445.xml" value="0.25" />
+        <entry key="../../../../layout/compose-model-1661178744865.xml" value="0.19974662162162163" />
+        <entry key="../../../../layout/compose-model-1661186596696.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1661186824100.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1661187044487.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1661187570922.xml" value="0.335" />
+        <entry key="../../../../layout/compose-model-1661189355141.xml" value="0.25" />
+        <entry key="../../../../layout/compose-model-1661189698098.xml" value="0.21241554054054054" />
+        <entry key="../../../../layout/compose-model-1661191615342.xml" value="0.8339350180505415" />
+        <entry key="../../../../layout/compose-model-1661191901794.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1661193524749.xml" value="0.22382671480144403" />
+        <entry key="../../../../layout/compose-model-1661193556823.xml" value="1.0" />
+        <entry key="../../../../layout/compose-model-1661194046257.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1661194073673.xml" value="1.0" />
+        <entry key="../../../../layout/compose-model-1661194735667.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1661195564975.xml" value="0.25" />
+        <entry key="../../../../layout/compose-model-1661196786715.xml" value="0.13935810810810811" />
+        <entry key="../../../../layout/compose-model-1661266225998.xml" value="0.13703703703703704" />
+        <entry key="../../../../layout/compose-model-1661367796525.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1661440038406.xml" value="0.10092592592592593" />
         <entry key="../../../../layout/custom_preview.xml" value="0.15260416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1185" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.165" />
@@ -35,6 +62,7 @@
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/move_learned_at_background.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/move_type_color_background.xml" value="0.148" />
+        <entry key="app/src/main/res/drawable/pokemonf.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/rotated_pokeball.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/round.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/round_view.xml" value="0.148" />
@@ -88,6 +116,7 @@
         <entry key="app/src/main/res/layout/type_weakness_resistance.xml" value="0.25" />
         <entry key="app/src/main/res/menu/main_navigation_menu.xml" value="0.18255664814023087" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.18255664814023087" />
+        <entry key="app/src/main/res/menu/menu_main_navigation.xml" value="0.18041898247114152" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_close.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_close_round.xml" value="0.1" />
       </map>

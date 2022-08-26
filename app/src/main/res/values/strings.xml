@@ -151,6 +151,7 @@
     <string name="stats">Stats</string>
     <string name="about">About</string>
     <string name="title_activity_login_compose">loginCompose</string>
+    <string name="title_activity_main_compose">MainCompose</string>
 
 
 </resources>

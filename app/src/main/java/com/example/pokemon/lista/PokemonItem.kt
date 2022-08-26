@@ -9,5 +9,6 @@ data class PokemonItem(
     val type2: String?,
     val type2color: Int?,
     val id: Int,
-    val isfav: Boolean
+    val isfav: Boolean,
+
 )
